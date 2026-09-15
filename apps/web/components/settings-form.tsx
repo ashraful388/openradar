@@ -798,7 +798,7 @@ function VerifierProviderEditor({
 
       <Field label="API key"
              hint={isExisting && provider.api_key_set
-                   ? <>Currently set: <code className="mono">{provider.api_key_masked}</code>. Leave blank to keep, or paste a new key to replace.</>
+                   ? `Currently set: ${provider.api_key_masked}. Leave blank to keep, or paste a new key to replace.`
                    : "Paste the key from the provider's dashboard."}>
         <div style={{ display: "flex", gap: 6 }}>
           <input type={showKey ? "text" : "password"}

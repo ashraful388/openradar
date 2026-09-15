@@ -35,7 +35,7 @@ export default async function ProviderPage({
   const gated = provider.probe_status === "gated";
   const unreachable = provider.probe_status === "error";
   const sampleModel =
-    models.find((m) => m.is_free) ?? models[0]?.model_id ?? "MODEL_ID";
+    models.find((m) => m.is_free)?.model_id ?? models[0]?.model_id ?? "MODEL_ID";
 
   return (
     <div className="page narrow">
