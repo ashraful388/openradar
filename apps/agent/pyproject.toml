@@ -1,0 +1,20 @@
+[project]
+name = "openradar-agent"
+version = "0.1.0"
+description = "Discovery agent for OpenRadar — polls provider endpoints, models.dev, and curated GitHub lists, then writes a normalized snapshot."
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27",
+  "pydantic>=2.6",
+]
+
+[project.scripts]
+openradar = "openradar.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["openradar*"]

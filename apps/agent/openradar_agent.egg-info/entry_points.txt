@@ -1,0 +1,2 @@
+[console_scripts]
+openradar = openradar.cli:main

@@ -1,0 +1,29 @@
+node_modules/
+.next/
+out/
+dist/
+build/
+*.pyc
+__pycache__/
+.venv/
+venv/
+.env
+.env.local
+.DS_Store
+*.log
+.tmp/
+tmp/
+apps/web/.next/
+data/openradar.db
+# LLM verifier secrets — written by the Settings → Intelligence panel.
+# The form POSTs provider cards here. The file MUST stay out of git
+# because it carries the user's API keys.
+data/.verifier-secrets.json
+# Run-now state + log. Written by /api/run. Operator-local only; never
+# committed because the log can include LLM prompts/responses.
+data/.run-state.json
+data/.run.log
+# Provider API keys (BYOK) — written by Settings → Provider API keys.
+# Carries real provider credentials; MUST stay out of git. Env vars of
+# the same name take precedence (that's the CI/Vercel path).
+data/.provider-keys.json

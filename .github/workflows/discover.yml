@@ -1,0 +1,123 @@
+name: discover
+
+# The schedule is a 24-entry matrix — one cron line per possible
+# `*/N` hour value. Each entry is gated on the OPENRADAR_RUN_HOURS
+# repo variable (default 10). GitHub Actions cron is static YAML, so
+# the only way to make the interval configurable from the operator's
+# UI is to enumerate the candidate crons and let the env var pick
+# the live one. The other 23 entries stay dormant.
+on:
+  schedule:
+    - cron: "17 */1 * * *"   # gated by OPENRADAR_RUN_HOURS=1
+    - cron: "17 */2 * * *"   # ...=2
+    - cron: "17 */3 * * *"   # ...=3
+    - cron: "17 */4 * * *"   # ...=4
+    - cron: "17 */5 * * *"   # ...=5
+    - cron: "17 */6 * * *"   # ...=6
+    - cron: "17 */7 * * *"   # ...=7
+    - cron: "17 */8 * * *"   # ...=8
+    - cron: "17 */9 * * *"   # ...=9
+    - cron: "17 */10 * * *"  # ...=10 (default)
+    - cron: "17 */11 * * *"  # ...=11
+    - cron: "17 */12 * * *"  # ...=12
+    - cron: "17 */13 * * *"  # ...=13
+    - cron: "17 */14 * * *"  # ...=14
+    - cron: "17 */15 * * *"  # ...=15
+    - cron: "17 */16 * * *"  # ...=16
+    - cron: "17 */17 * * *"  # ...=17
+    - cron: "17 */18 * * *"  # ...=18
+    - cron: "17 */19 * * *"  # ...=19
+    - cron: "17 */20 * * *"  # ...=20
+    - cron: "17 */21 * * *"  # ...=21
+    - cron: "17 */22 * * *"  # ...=22
+    - cron: "17 */23 * * *"  # ...=23
+    - cron: "17 */24 * * *"  # ...=24
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why are you triggering a manual run?"
+        required: false
+        default: "manual"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # The schedule matrix above will trigger this job once per matched
+    # entry. We re-gate it here so that only the live interval actually
+    # proceeds — the other 23 cron entries see `run_hours` ≠ requested
+    # and exit early. The `repo:default_branch` reference avoids race
+    # conditions with in-flight PRs.
+    if: >-
+      github.event_name != 'schedule' ||
+      env.OPENRADAR_RUN_HOURS == '1' || env.OPENRADAR_RUN_HOURS == '2' ||
+      env.OPENRADAR_RUN_HOURS == '3' || env.OPENRADAR_RUN_HOURS == '4' ||
+      env.OPENRADAR_RUN_HOURS == '5' || env.OPENRADAR_RUN_HOURS == '6' ||
+      env.OPENRADAR_RUN_HOURS == '7' || env.OPENRADAR_RUN_HOURS == '8' ||
+      env.OPENRADAR_RUN_HOURS == '9' || env.OPENRADAR_RUN_HOURS == '10' ||
+      env.OPENRADAR_RUN_HOURS == '11' || env.OPENRADAR_RUN_HOURS == '12' ||
+      env.OPENRADAR_RUN_HOURS == '13' || env.OPENRADAR_RUN_HOURS == '14' ||
+      env.OPENRADAR_RUN_HOURS == '15' || env.OPENRADAR_RUN_HOURS == '16' ||
+      env.OPENRADAR_RUN_HOURS == '17' || env.OPENRADAR_RUN_HOURS == '18' ||
+      env.OPENRADAR_RUN_HOURS == '19' || env.OPENRADAR_RUN_HOURS == '20' ||
+      env.OPENRADAR_RUN_HOURS == '21' || env.OPENRADAR_RUN_HOURS == '22' ||
+      env.OPENRADAR_RUN_HOURS == '23' || env.OPENRADAR_RUN_HOURS == '24'
+    env:
+      # Operator-controlled interval. Default 10 (matches the previous
+      # behavior). Change in repo variables to retune the cadence.
+      OPENRADAR_RUN_HOURS: ${{ vars.OPENRADAR_RUN_HOURS || '10' }}
+      # Optional — set these as repo secrets to unlock extra sources.
+      BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+      TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+      EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+      REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+      REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+      X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install agent
+        working-directory: apps/agent
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run discovery
+        working-directory: apps/agent
+        run: |
+          python -m openradar.cli
+
+      - name: Append human-readable changelog
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, datetime, pathlib
+          snap = json.loads(pathlib.Path("data/snapshot.json").read_text())
+          md = pathlib.Path("data/changelog.md")
+          old = md.read_text() if md.exists() else "# OpenRadar changelog\n\n"
+          new_rows = [c for c in snap["changelog"][:30]]
+          stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+          block = [f"## {stamp}"] + [f"- **{c['kind']}** — {c['text']}" for c in new_rows] + [""]
+          md.write_text(old + "\n".join(block))
+          PY
+
+      - name: Commit if changed
+        run: |
+          git config user.name "openradar-bot"
+          git config user.email "bot@openradar.local"
+          git add data/snapshot.json data/changelog.md
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "agent: refresh ($(date -u +%FT%TZ))"
+            git push
+          fi

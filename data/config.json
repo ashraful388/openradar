@@ -1,0 +1,79 @@
+{
+  "agent": {
+    "run_frequency": "every_6_hours",
+    "include_search_apis": true,
+    "include_community_lists": true,
+    "auto_promote_candidates": true,
+    "auto_remove_stale": false,
+    "log_level": "info",
+    "run_interval_hours": 1,
+    "llm_orchestration_enabled": true,
+    "manual_mode": false
+  },
+  "free_detection": {
+    "free_only_when": "both_input_and_output_zero",
+    "min_dollar_threshold": 0,
+    "respect_b_ai_pricing": true,
+    "treat_credits_as_free": true
+  },
+  "flagships": {
+    "max_output_per_1m": 1,
+    "require_tool_calling_or_vision": true,
+    "min_quality_signal": "any"
+  },
+  "sources": {
+    "openrouter": {
+      "enabled": true,
+      "weight": 1
+    },
+    "huggingface": {
+      "enabled": true,
+      "weight": 1
+    },
+    "models_dev": {
+      "enabled": true,
+      "weight": 1
+    },
+    "bai_static": {
+      "enabled": true,
+      "weight": 1
+    },
+    "bai_live": {
+      "enabled": true,
+      "weight": 1.5
+    },
+    "community_lists": {
+      "enabled": true,
+      "weight": 0.8
+    },
+    "search_apis": {
+      "enabled": true,
+      "weight": 0.6
+    },
+    "provider_endpoints": {
+      "enabled": true,
+      "weight": 0.7
+    },
+    "verifier": {
+      "enabled": false,
+      "weight": 1
+    }
+  },
+  "verifier": {
+    "enabled": true,
+    "primary_provider": "BAI-IUB",
+    "secondary_provider": "hcnsec",
+    "auto_apply_expire": true,
+    "expire_confidence_threshold": 0.7
+  },
+  "ui": {
+    "show_paid_models_on_provider_page": true,
+    "models_page_view": "grouped",
+    "default_region_filter": "",
+    "highlight_status_dot_threshold_days": 7
+  },
+  "notifications": {
+    "new_provider_webhook_url": "",
+    "expired_tier_webhook_url": ""
+  }
+}
