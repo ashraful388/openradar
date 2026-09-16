@@ -41,6 +41,7 @@ HOMEPAGES: dict[str, str] = {
     "p_tokenrouter": "https://www.tokenrouter.com",
     "p_tabitoken": "https://tabitoken.com",
     "p_hcnsec": "https://api.hcnsec.cn",
+    "p_agentrouter": "https://agentrouter.org",
     "p_api": "https://voidai.app",
     "p_api_2": "https://naga.ac",
     "p_helixmind": "https://helixmind.online",
@@ -151,6 +152,13 @@ PROVIDERS: list[Provider] = [
              notes="api.hcnsec.cn runs a New API gateway: unauthenticated /v1/models answers "
                    "{\"error\": {\"type\": \"new_api_error\", \"message\": \"Invalid token\"}} — the list is "
                    "token-gated, not empty. Set HCNSEC_API_KEY to verify."),
+    Provider(id="p_agentrouter", slug="agentrouter", name="AgentRouter", region="Global",
+             api_base="https://agentrouter.org/v1", openai_compatible=True,
+             api_key_env="AGENTROUTER_API_KEY",
+             tagline="Agent-oriented LLM gateway (one-api family) advertising free models and signup credits; /v1/models is key-gated.",
+             notes="agentrouter.org answers 401 {\"type\": \"unauthorized_client_error\"} without a key "
+                   "(support via their Discord). Set AGENTROUTER_API_KEY to verify; credit terms are "
+                   "published in-console, not on a stable public page."),
 ]
 
 # Pin canonical homepages after the list is built.
@@ -183,6 +191,17 @@ CREDIT_PROVIDERS: list[CreditProvider] = [
         homepage="https://api.hcnsec.cn",
         notes="New API (one-api fork) gateway with signup credit promos — amount varies, check the "
               "console. Also registered as an OpenRadar verifier provider; /v1/models is token-gated.",
+    ),
+    CreditProvider(
+        provider_id="p_agentrouter",
+        name="AgentRouter",
+        signup_bonus_usd=None,
+        credit_expiry_days=None,
+        models_available=["see console for the full list (/v1/models is key-gated)"],
+        signup_friction="email",
+        homepage="https://agentrouter.org",
+        notes="Agent-oriented gateway advertising free models and signup credits — amount varies, "
+              "check the console or their Discord. Also an OpenRadar verifier candidate.",
     ),
     CreditProvider(
         provider_id="p_together",
