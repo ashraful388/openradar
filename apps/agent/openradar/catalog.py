@@ -40,6 +40,7 @@ HOMEPAGES: dict[str, str] = {
     "p_experiential": "https://platform.experientiallabs.ai",
     "p_tokenrouter": "https://www.tokenrouter.com",
     "p_tabitoken": "https://tabitoken.com",
+    "p_hcnsec": "https://api.hcnsec.cn",
     "p_api": "https://voidai.app",
     "p_api_2": "https://naga.ac",
     "p_helixmind": "https://helixmind.online",
@@ -143,6 +144,13 @@ PROVIDERS: list[Provider] = [
              api_key_env="TABITOKEN_API_KEY",
              tagline="LLM gateway with free models. /v1/models is gated behind an API key.",
              notes="https://tabitoken.com/models lists the catalog; the API answers 401 without a key."),
+    Provider(id="p_hcnsec", slug="hcnsec", name="Hcnsec", region="China",
+             api_base="https://api.hcnsec.cn/v1", openai_compatible=True,
+             api_key_env="HCNSEC_API_KEY",
+             tagline="New API (one-api fork) gateway serving free-credit models; also registered as an OpenRadar verifier provider.",
+             notes="api.hcnsec.cn runs a New API gateway: unauthenticated /v1/models answers "
+                   "{\"error\": {\"type\": \"new_api_error\", \"message\": \"Invalid token\"}} — the list is "
+                   "token-gated, not empty. Set HCNSEC_API_KEY to verify."),
 ]
 
 # Pin canonical homepages after the list is built.

@@ -940,6 +940,29 @@
       "status": "active",
       "first_seen": "2026-09-08T16:41:19Z",
       "last_verified": "2026-09-08T16:41:19Z"
+    },
+    {
+      "id": "p_hcnsec",
+      "slug": "hcnsec",
+      "name": "Hcnsec",
+      "region": "China",
+      "api_base": "https://api.hcnsec.cn/v1",
+      "openai_compatible": true,
+      "api_key_env": "HCNSEC_API_KEY",
+      "homepage": "https://api.hcnsec.cn",
+      "signup_friction": "email",
+      "modalities": [
+        "chat"
+      ],
+      "tagline": "New API (one-api fork) gateway serving free-credit models; also registered as an OpenRadar verifier provider.",
+      "notes": "api.hcnsec.cn runs a New API gateway: unauthenticated /v1/models answers {\"error\": {\"type\": \"new_api_error\", \"message\": \"Invalid token\"}} \u2014 the list is token-gated, not empty. Set HCNSEC_API_KEY to verify.",
+      "catch": "",
+      "free_model_count": 0,
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 0, \"total\": 0}",
+      "probe_status": "needs_key",
+      "status": "active",
+      "first_seen": "2026-09-16T03:51:16Z",
+      "last_verified": "2026-09-16T03:51:16Z"
     }
   ],
   "models": [
@@ -79083,6 +79106,11 @@
       "at": "2026-09-14T04:48:51Z",
       "kind": "verified",
       "text": "agent run finished in 1036.5s"
+    },
+    {
+      "at": "2026-09-16T03:51:16Z",
+      "kind": "added",
+      "text": "catalog: added Hcnsec (hcnsec)"
     }
   ],
   "credit_providers": [

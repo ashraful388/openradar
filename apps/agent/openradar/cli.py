@@ -1156,6 +1156,127 @@ def ingest_submissions(snap: Snapshot) -> int:
     return processed
 
 
+def _url_host(url: str) -> str:
+    """Lowercase hostname of a URL, without a leading www. — '' if unparsable."""
+    from urllib.parse import urlparse
+    try:
+        host = (urlparse(url).netloc or "").lower()
+    except ValueError:
+        return ""
+    return host[4:] if host.startswith("www.") else host
+
+
+def _promote_submitted_provider(snap: Snapshot, sub: dict, name: str,
+                                taken_ids: set[str], taken_slugs: set[str]) -> bool:
+    """Probe a submission's endpoint and promote it exactly like a
+    community-list candidate: /v1/models must answer. Gated endpoints
+    are promoted too (probe_status=needs_key → the UI shows the KEY?
+    badge); dead or non-API hosts are changelog-only, never promoted.
+    Returns True when a provider row was added."""
+    host = ""
+    for field in ("api_base", "provider_url", "source_url"):
+        host = _url_host((sub.get(field) or "").strip())
+        if host and "." in host and not sources.community_lists._is_noise_host(host):
+            break
+        host = ""
+    if not host:
+        return False
+    if any(host in (p.homepage_host() or "") for p in snap.providers):
+        return False
+    base = (sub.get("api_base") or "").strip() or f"https://{host}/v1"
+    status, rows = sources.openai_compat.fetch_models(base, timeout=10.0)
+    if status == "error" or (status == "ok" and not rows):
+        snap.changelog.append(Change(
+            kind="submit",
+            text=f"submission endpoint {base} answered '{status}' — kept as candidate, not promoted",
+        ))
+        return False
+    prov = promote.make_provider(
+        {"host": host, "name": name, "source": "public submission (Submit form)"},
+        taken_ids, taken_slugs,
+    )
+    if not prov:
+        return False
+    prov.api_base = base
+    prov.homepage = promote.homepage_from_host(base) or f"https://{host}"
+    if status in ("needs_key", "gated"):
+        prov.probe_status = "needs_key" if status == "needs_key" else "gated"
+        prov.api_key_env = f"{prov.slug.upper().replace('-', '_')}_API_KEY"
+        prov.notes = (prov.notes + " | submitter reports free models/credits; "
+                      "/v1/models is token-gated, so the list is unknown until a key is set.").strip(" |")
+    snap.providers.append(prov)
+    if status == "ok":
+        for row in rows:
+            mid = row.get("id") or row.get("name")
+            if mid:
+                _add_model(snap, prov.id, str(mid), row.get("name") or str(mid),
+                           modality=prov.modalities, is_free=False,
+                           free_kind="byok_required", free_limit="")
+    snap.changelog.append(Change(
+        kind="added",
+        text=f"promoted {prov.name} from a public submission — endpoint {base} answered '{status}'"
+             + (f" with {len(rows)} models" if status == "ok" else ""),
+    ))
+    return True
+
+
+def ingest_github_submissions(snap: Snapshot, taken_ids: set[str],
+                              taken_slugs: set[str], cfg: dict) -> int:
+    """Ingest provider submissions filed as GitHub issues by the deployed
+    site's Submit form (Vercel's FS is read-only, so the form can't write
+    submissions.jsonl there — its API route files an issue instead, see
+    apps/web/app/api/submit). Each open `provider-submission` issue gets
+    a changelog entry; when the submitter's endpoint probes as
+    OpenAI-compatible it is promoted like a community-list candidate.
+    Issues are closed after ingestion (needs the workflow's GH_TOKEN);
+    token-less local runs track processed numbers in a state file."""
+    import os as _os
+    from . import github_issues
+
+    repo = (_os.environ.get("OPENRADAR_GITHUB_REPO") or "").strip()
+    if not repo:
+        return 0
+    token = _os.environ.get("GH_TOKEN") or _os.environ.get("GITHUB_TOKEN")
+    auto_promote = bool(cfg["agent"].get("auto_promote_candidates", True))
+    try:
+        issues = github_issues.fetch_open(repo, token)
+    except Exception as e:
+        snap.changelog.append(Change(kind="submit", text=f"github submissions fetch failed: {e}"))
+        return 0
+
+    processed = 0
+    state = github_issues.load_processed()
+    for issue in issues:
+        if issue["number"] in state:
+            continue
+        sub = github_issues.parse_body(issue.get("body") or "")
+        name = (sub.get("provider_name")
+                or issue.get("title", "").replace("Provider submission:", "").strip()
+                or "?")
+        snap.changelog.append(Change(
+            kind="submit",
+            text=f"submission (issue #{issue['number']}): {name} "
+                 f"({sub.get('provider_url') or sub.get('source_url') or 'no url'})",
+        ))
+        processed += 1
+        promoted = _promote_submitted_provider(snap, sub, name, taken_ids, taken_slugs) \
+            if auto_promote else False
+        if token:
+            github_issues.close(
+                repo, issue["number"], token,
+                comment=("Picked up by the OpenRadar discovery agent — "
+                         + ("probed and promoted to the directory; free-tier verification follows on later runs."
+                            if promoted else
+                            "recorded in the changelog. The /v1/models probe did not confirm an "
+                            "OpenAI-compatible endpoint yet, so no provider row was created.")),
+            )
+        else:
+            state.add(issue["number"])
+    if processed and not token:
+        github_issues.save_processed(state)
+    return processed
+
+
 def ingest_search(snap: Snapshot) -> int:
     if not any(os.environ.get(k) for k in ("BRAVE_SEARCH_API_KEY", "TAVILY_API_KEY", "EXA_API_KEY")):
         return 0
@@ -1579,6 +1700,13 @@ def run(once: bool = False) -> Snapshot:
     n6 = ingest_submissions(snap)
     if n6:
         snap.changelog.append(Change(kind="submit", text=f"processed {n6} public submissions"))
+
+    # 6b. Submissions filed as GitHub issues by the deployed site's
+    # Submit form (Vercel's FS is read-only, so the form files an issue
+    # instead of appending to submissions.jsonl).
+    n6b = ingest_github_submissions(snap, taken_ids, taken_slugs, cfg)
+    if n6b:
+        snap.changelog.append(Change(kind="submit", text=f"processed {n6b} GitHub-issue submissions"))
 
     # 7. Search APIs (optional)
     if cfg["agent"].get("include_search_apis", True) and \

@@ -27,3 +27,8 @@ data/.run.log
 # Carries real provider credentials; MUST stay out of git. Env vars of
 # the same name take precedence (that's the CI/Vercel path).
 data/.provider-keys.json
+# Submission-issue dedup state for token-less local runs (CI closes the
+# issues instead). Operator-local only.
+data/.issues-state.json
+
+.vercel

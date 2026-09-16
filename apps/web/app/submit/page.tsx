@@ -17,7 +17,12 @@ export default function SubmitPage() {
       body: JSON.stringify(payload),
     });
     if (!res.ok) {
-      setError("Submission failed. Try again or open an issue on GitHub.");
+      let msg = "Submission failed. Try again or open an issue on GitHub.";
+      try {
+        const j = await res.json();
+        if (j?.error) msg = j.error;
+      } catch {}
+      setError(msg);
       return;
     }
     setSubmitted(true);
