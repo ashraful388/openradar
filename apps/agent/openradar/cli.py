@@ -1299,8 +1299,8 @@ def ingest_github_submissions(snap: Snapshot, taken_ids: set[str],
 
 
 def ingest_search(snap: Snapshot) -> int:
-    if not any(os.environ.get(k) for k in ("BRAVE_SEARCH_API_KEY", "TAVILY_API_KEY", "EXA_API_KEY")):
-        return 0
+    # No key gate here: search runs via the keyless DuckDuckGo fallback
+    # when no Brave/Tavily/Exa key is configured (see sources/search.py).
     queries = [
         "new free LLM API 2026 launch",
         "free AI API tier launch",

@@ -13,6 +13,8 @@ REPOS: list[tuple[str, str]] = [
     ("https://raw.githubusercontent.com/cheahjs/free-llm-api-resources/main/README.md", "cheahjs/free-llm-api-resources"),
     ("https://raw.githubusercontent.com/zukixa/cool-ai-stuff/main/README.md", "zukixa/cool-ai-stuff"),
     ("https://raw.githubusercontent.com/jamez-bondos/awesome-gpt4o-images/main/README.md", "jamez-bondos/awesome-gpt4o-images"),
+    ("https://raw.githubusercontent.com/open-free-llm-api/awesome-freellm-apis/main/README.md", "open-free-llm-api/awesome-freellm-apis"),
+    ("https://raw.githubusercontent.com/nejib1/Free-LLM/main/README.md", "nejib1/Free-LLM"),
 ]
 
 # Match a markdown table row of the form `| [name](https://host/path) | ...`
