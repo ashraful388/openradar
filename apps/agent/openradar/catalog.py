@@ -163,6 +163,28 @@ for _p in PROVIDERS:
 # permanently free API access — they give a one-time credit balance.
 CREDIT_PROVIDERS: list[CreditProvider] = [
     CreditProvider(
+        provider_id="p_tabitoken",
+        name="TabiToken",
+        signup_bonus_usd=None,
+        credit_expiry_days=None,
+        models_available=["See tabitoken.com/models (list is public; the API is key-gated)"],
+        signup_friction="email",
+        homepage="https://tabitoken.com",
+        notes="Gateway advertising free models and signup credit promos. The credit amount "
+              "varies and isn't published on a stable page — check the site for the current offer.",
+    ),
+    CreditProvider(
+        provider_id="p_hcnsec",
+        name="Hcnsec",
+        signup_bonus_usd=None,
+        credit_expiry_days=None,
+        models_available=["MiniMax-M3", "see console for the full list"],
+        signup_friction="email",
+        homepage="https://api.hcnsec.cn",
+        notes="New API (one-api fork) gateway with signup credit promos — amount varies, check the "
+              "console. Also registered as an OpenRadar verifier provider; /v1/models is token-gated.",
+    ),
+    CreditProvider(
         provider_id="p_together",
         name="Together AI",
         signup_bonus_usd=5.0,

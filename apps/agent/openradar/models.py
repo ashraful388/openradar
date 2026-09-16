@@ -93,7 +93,9 @@ class CreditProvider(BaseModel):
     """Providers that offer free credits/money on signup, not free inference."""
     provider_id: str
     name: str
-    signup_bonus_usd: float
+    # None = the site advertises signup credits but doesn't publish a fixed
+    # amount (or we couldn't verify one) — the UI renders "Varies".
+    signup_bonus_usd: float | None
     credit_expiry_days: int | None
     models_available: list[str]
     signup_friction: str  # email, phone, github, trial_card

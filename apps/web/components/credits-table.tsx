@@ -11,7 +11,8 @@ const FRICTION_LABELS: Record<string, string> = {
   trial_card: "Credit Card",
 };
 
-function fmtUsd(n: number): string {
+function fmtUsd(n: number | null): string {
+  if (n == null) return "Varies";
   return n % 1 === 0 ? `$${n}` : `$${n.toFixed(2)}`;
 }
 
@@ -53,8 +54,12 @@ export function CreditsTable({
       switch (sortKey) {
         case "name":
           return dir * a.name.localeCompare(b.name);
-        case "bonus":
-          return dir * (a.signup_bonus_usd - b.signup_bonus_usd);
+        case "bonus": {
+          // "Varies" (null) rows sort after known amounts.
+          const av = a.signup_bonus_usd ?? Number.POSITIVE_INFINITY;
+          const bv = b.signup_bonus_usd ?? Number.POSITIVE_INFINITY;
+          return dir * (av - bv);
+        }
         case "expiry": {
           const av = a.credit_expiry_days ?? Number.POSITIVE_INFINITY;
           const bv = b.credit_expiry_days ?? Number.POSITIVE_INFINITY;
@@ -130,7 +135,16 @@ export function CreditsTable({
                           {cp.name}
                         </Link>
                       ) : (
-                        cp.name
+                        /* No catalog page for this one — link its site so
+                           every row on the credits page is clickable. */
+                        <a
+                          href={cp.homepage}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="provider-link"
+                        >
+                          {cp.name}
+                        </a>
                       )}
                     </td>
                     <td className="bonus-cell">{fmtUsd(cp.signup_bonus_usd)}</td>

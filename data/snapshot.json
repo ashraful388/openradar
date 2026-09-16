@@ -79781,9 +79781,44 @@
       "at": "2026-09-16T04:01:38Z",
       "kind": "verified",
       "text": "agent run finished in 45.1s"
+    },
+    {
+      "at": "2026-09-16T04:53:16Z",
+      "kind": "added",
+      "text": "catalog: added credit provider TabiToken (p_tabitoken)"
+    },
+    {
+      "at": "2026-09-16T04:53:16Z",
+      "kind": "added",
+      "text": "catalog: added credit provider Hcnsec (p_hcnsec)"
     }
   ],
   "credit_providers": [
+    {
+      "provider_id": "p_hcnsec",
+      "name": "Hcnsec",
+      "signup_bonus_usd": null,
+      "credit_expiry_days": null,
+      "models_available": [
+        "MiniMax-M3",
+        "see console for the full list"
+      ],
+      "signup_friction": "email",
+      "homepage": "https://api.hcnsec.cn",
+      "notes": "New API (one-api fork) gateway with signup credit promos \u2014 amount varies, check the console. Also registered as an OpenRadar verifier provider; /v1/models is token-gated."
+    },
+    {
+      "provider_id": "p_tabitoken",
+      "name": "TabiToken",
+      "signup_bonus_usd": null,
+      "credit_expiry_days": null,
+      "models_available": [
+        "See tabitoken.com/models (list is public; the API is key-gated)"
+      ],
+      "signup_friction": "email",
+      "homepage": "https://tabitoken.com",
+      "notes": "Gateway advertising free models and signup credit promos. The credit amount varies and is not published on a stable page \u2014 check the site for the current offer."
+    },
     {
       "provider_id": "p_together",
       "name": "Together AI",

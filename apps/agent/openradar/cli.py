@@ -61,6 +61,7 @@ def load_existing() -> Snapshot:
             _repair_generic_names(snap)
             _fill_homepages(snap)
             _merge_catalog_providers(snap)
+            _merge_credit_providers(snap)
             # Clean up legacy free claims: providers with needs_key probe status
             # should not have is_free=True models without evidence source
             _cleanup_legacy_free_claims(snap)
@@ -137,6 +138,26 @@ def _merge_catalog_providers(snap: Snapshot) -> int:
             p.api_base = seed.api_base
         if seed.homepage and p.homepage != seed.homepage:
             p.homepage = seed.homepage
+    return added
+
+
+def _merge_credit_providers(snap: Snapshot) -> int:
+    """Add catalog CREDIT_PROVIDERS that are missing from the snapshot's
+    credit list — same seed-and-correct philosophy as
+    _merge_catalog_providers: catalog edits must reach the next run's
+    snapshot, and nothing is ever removed. Returns rows added."""
+    known = {c.provider_id for c in snap.credit_providers}
+    added = 0
+    for seed in CREDIT_PROVIDERS:
+        if seed.provider_id in known:
+            continue
+        snap.credit_providers.append(seed)
+        known.add(seed.provider_id)
+        added += 1
+        snap.changelog.append(Change(
+            kind="added",
+            text=f"catalog: added credit provider {seed.name} ({seed.provider_id})",
+        ))
     return added
 
 

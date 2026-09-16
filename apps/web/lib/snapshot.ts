@@ -74,7 +74,9 @@ export type Change = {
 export type CreditProvider = {
   provider_id: string;
   name: string;
-  signup_bonus_usd: number;
+  /** null = the site advertises signup credits but publishes no fixed
+   *  amount — the credits table renders "Varies". */
+  signup_bonus_usd: number | null;
   credit_expiry_days: number | null;
   models_available: string[];
   signup_friction: string;
