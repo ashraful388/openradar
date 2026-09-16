@@ -1,5 +1,5 @@
 {
-  "snapshot_at": "2026-09-14T04:31:35Z",
+  "snapshot_at": "2026-09-16T04:00:53Z",
   "schema_version": 1,
   "providers": [
     {
@@ -46,7 +46,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-14T04:31:38Z"
+      "last_verified": "2026-09-16T04:00:53Z"
     },
     {
       "id": "p_groq",
@@ -66,7 +66,7 @@
       "catch": "",
       "free_model_count": 3,
       "pricing_status": "{\"free\": 3, \"paid_with_price\": 9, \"paid_no_price\": 4, \"total\": 16}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-14T04:31:39Z"
@@ -117,7 +117,7 @@
       "catch": "",
       "free_model_count": 0,
       "pricing_status": "{\"free\": 0, \"paid_with_price\": 2, \"paid_no_price\": 1, \"total\": 3}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-14T04:31:41Z"
@@ -142,7 +142,7 @@
       "catch": "",
       "free_model_count": 9,
       "pricing_status": "{\"free\": 9, \"paid_with_price\": 31, \"paid_no_price\": 28, \"total\": 68}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-14T04:31:42Z"
@@ -189,8 +189,8 @@
       "notes": "",
       "catch": "",
       "free_model_count": 1,
-      "pricing_status": "{\"free\": 1, \"paid_with_price\": 38, \"paid_no_price\": 250, \"total\": 289}",
-      "probe_status": "ok",
+      "pricing_status": "{\"free\": 1, \"paid_with_price\": 39, \"paid_no_price\": 249, \"total\": 289}",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-14T04:31:47Z"
@@ -212,7 +212,7 @@
       "notes": "",
       "catch": "",
       "free_model_count": 0,
-      "pricing_status": "{\"free\": 0, \"paid_with_price\": 22, \"paid_no_price\": 1, \"total\": 23}",
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 31, \"paid_no_price\": 2, \"total\": 33}",
       "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
@@ -235,11 +235,11 @@
       "notes": "",
       "catch": "",
       "free_model_count": 0,
-      "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 194, \"total\": 194}",
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 197, \"total\": 197}",
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-14T04:31:50Z"
+      "last_verified": "2026-09-16T04:00:55Z"
     },
     {
       "id": "p_sambanova",
@@ -262,7 +262,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-14T04:31:51Z"
+      "last_verified": "2026-09-16T04:00:55Z"
     },
     {
       "id": "p_nvidia",
@@ -284,11 +284,11 @@
       "notes": "",
       "catch": "",
       "free_model_count": 26,
-      "pricing_status": "{\"free\": 26, \"paid_with_price\": 0, \"paid_no_price\": 58, \"total\": 84}",
+      "pricing_status": "{\"free\": 26, \"paid_with_price\": 0, \"paid_no_price\": 59, \"total\": 85}",
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-14T04:31:52Z"
+      "last_verified": "2026-09-16T04:00:55Z"
     },
     {
       "id": "p_cloudflare",
@@ -364,7 +364,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-14T04:31:54Z"
+      "last_verified": "2026-09-16T04:00:55Z"
     },
     {
       "id": "p_openrouter",
@@ -382,12 +382,12 @@
       "tagline": "",
       "notes": "",
       "catch": "",
-      "free_model_count": 24,
-      "pricing_status": "{\"free\": 24, \"paid_with_price\": 0, \"paid_no_price\": 433, \"total\": 457}",
+      "free_model_count": 25,
+      "pricing_status": "{\"free\": 25, \"paid_with_price\": 0, \"paid_no_price\": 434, \"total\": 459}",
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-14T04:31:55Z"
+      "last_verified": "2026-09-16T04:00:56Z"
     },
     {
       "id": "p_qwen",
@@ -567,11 +567,11 @@
       "notes": "",
       "catch": "",
       "free_model_count": 0,
-      "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 159, \"total\": 159}",
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 160, \"total\": 160}",
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-14T04:32:10Z"
+      "last_verified": "2026-09-16T04:00:59Z"
     },
     {
       "id": "p_nscale",
@@ -614,7 +614,7 @@
       "catch": "",
       "free_model_count": 9,
       "pricing_status": "{\"free\": 9, \"paid_with_price\": 0, \"paid_no_price\": 0, \"total\": 9}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-14T04:32:12Z"
@@ -709,7 +709,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:20Z",
-      "last_verified": "2026-09-14T04:32:27Z"
+      "last_verified": "2026-09-16T04:01:12Z"
     },
     {
       "id": "p_api_2",
@@ -732,7 +732,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:21Z",
-      "last_verified": "2026-09-14T04:32:28Z"
+      "last_verified": "2026-09-16T04:01:12Z"
     },
     {
       "id": "p_helixmind",
@@ -755,7 +755,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:23Z",
-      "last_verified": "2026-09-14T04:32:30Z"
+      "last_verified": "2026-09-16T04:01:13Z"
     },
     {
       "id": "p_api_3",
@@ -774,11 +774,11 @@
       "notes": "First seen in zukixa/cool-ai-stuff. Verify free tier before relying on it.",
       "catch": "Auto-added; review before building on it.",
       "free_model_count": 0,
-      "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 168, \"total\": 168}",
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 169, \"total\": 169}",
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:31Z",
-      "last_verified": "2026-09-14T04:32:32Z"
+      "last_verified": "2026-09-16T04:01:13Z"
     },
     {
       "id": "p_api_4",
@@ -801,7 +801,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:33Z",
-      "last_verified": "2026-09-14T04:32:34Z"
+      "last_verified": "2026-09-16T04:01:14Z"
     },
     {
       "id": "p_hcap",
@@ -821,7 +821,7 @@
       "catch": "Auto-added; review before building on it.",
       "free_model_count": 0,
       "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 24, \"total\": 24}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:12:36Z",
       "last_verified": "2026-09-14T04:32:36Z"
@@ -843,11 +843,11 @@
       "notes": "Free classification is source-declared: access_tier=free or pricing 0/0 in the live listing.",
       "catch": "",
       "free_model_count": 40,
-      "pricing_status": "{\"free\": 40, \"paid_with_price\": 72, \"paid_no_price\": 0, \"total\": 112}",
+      "pricing_status": "{\"free\": 40, \"paid_with_price\": 73, \"paid_no_price\": 1, \"total\": 114}",
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-08T11:46:56Z",
-      "last_verified": "2026-09-14T04:32:37Z"
+      "last_verified": "2026-09-16T04:01:15Z"
     },
     {
       "id": "p_experiential",
@@ -867,7 +867,7 @@
       "catch": "",
       "free_model_count": 0,
       "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 336, \"total\": 336}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-08T11:46:56Z",
       "last_verified": "2026-09-14T04:32:39Z"
@@ -889,7 +889,7 @@
       "notes": "First seen in openrouter providers directory. Verify free tier before relying on it.",
       "catch": "Auto-added; review before building on it.",
       "free_model_count": 0,
-      "pricing_status": "{\"free\": 0, \"paid_with_price\": 12, \"paid_no_price\": 0, \"total\": 12}",
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 14, \"paid_no_price\": 0, \"total\": 14}",
       "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-08T16:24:53Z",
@@ -13604,12 +13604,12 @@
         "chat"
       ],
       "context_window": 256000,
-      "is_free": false,
-      "free_kind": "byok_required",
-      "free_limit": "",
+      "is_free": true,
+      "free_kind": "free_tier",
+      "free_limit": "OpenRouter free variant",
       "free_verified_at": null,
-      "free_evidence_source": null,
-      "free_evidence_timestamp": null,
+      "free_evidence_source": "openrouter",
+      "free_evidence_timestamp": "2026-09-16T04:01:19Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -70131,8 +70131,8 @@
       "free_verified_at": null,
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
+      "input_per_1m": 0.3,
+      "output_per_1m": 1.2,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
       "last_verified": "2026-09-14T03:12:00Z"
@@ -71207,6 +71207,471 @@
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
       "last_verified": "2026-09-14T03:12:58Z"
+    },
+    {
+      "id": "m_deepinfra_qwen_qwen3_8-flash",
+      "provider_id": "p_deepinfra",
+      "model_id": "Qwen/Qwen3.8-Flash",
+      "display_name": "Qwen/Qwen3.8-Flash",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1000000,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:00:55Z"
+    },
+    {
+      "id": "m_deepinfra_bria_fibo-1_5",
+      "provider_id": "p_deepinfra",
+      "model_id": "Bria/fibo-1.5",
+      "display_name": "Bria/fibo-1.5",
+      "modality": [
+        "chat"
+      ],
+      "context_window": null,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:00:55Z"
+    },
+    {
+      "id": "m_deepinfra_bria_fibo_edit-1_5",
+      "provider_id": "p_deepinfra",
+      "model_id": "Bria/fibo_edit-1.5",
+      "display_name": "Bria/fibo_edit-1.5",
+      "modality": [
+        "chat"
+      ],
+      "context_window": null,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:00:55Z"
+    },
+    {
+      "id": "m_nvidia_z-ai_glm-5_3",
+      "provider_id": "p_nvidia",
+      "model_id": "z-ai/glm-5.3",
+      "display_name": "z-ai/glm-5.3",
+      "modality": [
+        "chat",
+        "embedding",
+        "image",
+        "vision"
+      ],
+      "context_window": null,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:00:55Z"
+    },
+    {
+      "id": "m_openrouter_~deepseek_deepseek-pro-latest",
+      "provider_id": "p_openrouter",
+      "model_id": "~deepseek/deepseek-pro-latest",
+      "display_name": "DeepSeek: DeepSeek Pro Latest",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048576,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:00:56Z"
+    },
+    {
+      "id": "m_openrouter_~deepseek_deepseek-flash-latest",
+      "provider_id": "p_openrouter",
+      "model_id": "~deepseek/deepseek-flash-latest",
+      "display_name": "DeepSeek: DeepSeek Flash Latest",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048576,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:00:56Z"
+    },
+    {
+      "id": "m_novita_deepseek_deepseek-v4_1-flash-z",
+      "provider_id": "p_novita",
+      "model_id": "deepseek/deepseek-v4.1-flash-z",
+      "display_name": "deepseek/deepseek-v4.1-flash-z",
+      "modality": [
+        "chat"
+      ],
+      "context_window": null,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:00:59Z"
+    },
+    {
+      "id": "m_api_3_deepseek-v4_1-flash",
+      "provider_id": "p_api_3",
+      "model_id": "deepseek-v4.1-flash",
+      "display_name": "deepseek-v4.1-flash",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048576,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:13Z"
+    },
+    {
+      "id": "m_xkiro_deepseek_deepseek-v4_1-flash",
+      "provider_id": "p_xkiro",
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "display_name": "deepseek/deepseek-v4.1-flash",
+      "modality": [
+        "chat"
+      ],
+      "context_window": null,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 0.075,
+      "output_per_1m": 0.3,
+      "cache_read_per_1m": 0.0015,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:15Z"
+    },
+    {
+      "id": "m_xkiro_deepseek_deepseek-v4_1-flash_free",
+      "provider_id": "p_xkiro",
+      "model_id": "deepseek/deepseek-v4.1-flash:free",
+      "display_name": "deepseek/deepseek-v4.1-flash:free",
+      "modality": [
+        "chat"
+      ],
+      "context_window": null,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "provider-declared (:free id)",
+      "free_verified_at": null,
+      "free_evidence_source": "declared",
+      "free_evidence_timestamp": "2026-09-16T04:01:15Z",
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:15Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_routers_kimi-latest",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/routers/kimi-latest",
+      "display_name": "Kimi Latest",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048576,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 3.0,
+      "output_per_1m": 15.0,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_routers_glm-flash-latest",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/routers/glm-flash-latest",
+      "display_name": "GLM Flash Latest (GLM 5.3 Flash)",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048573,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.5,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_routers_minimax-latest",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/routers/minimax-latest",
+      "display_name": "MiniMax Latest",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 512000,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 0.3,
+      "output_per_1m": 1.2,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_routers_glm-fast-latest",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/routers/glm-fast-latest",
+      "display_name": "GLM 5.3 Fast (Latest)",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048572,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 2.1,
+      "output_per_1m": 6.6,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_routers_deepseek-pro-latest",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/routers/deepseek-pro-latest",
+      "display_name": "DeepSeek Pro Latest",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1000000,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 1.32,
+      "output_per_1m": 3.96,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_routers_glm-latest",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/routers/glm-latest",
+      "display_name": "GLM Latest",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048573,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 1.4,
+      "output_per_1m": 4.4,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_routers_kimi-fast-latest",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/routers/kimi-fast-latest",
+      "display_name": "Kimi Fast Latest",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048576,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 4.5,
+      "output_per_1m": 22.5,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_routers_deepseek-flash-latest",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/routers/deepseek-flash-latest",
+      "display_name": "DeepSeek Flash Latest",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1000000,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 0.22,
+      "output_per_1m": 0.66,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_models_minimax-m2p7",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/models/minimax-m2p7",
+      "display_name": "MiniMax-M2.7",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 196608,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 0.3,
+      "output_per_1m": 1.2,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_fireworks_accounts_fireworks_models_deepseek-v4-pro",
+      "provider_id": "p_fireworks",
+      "model_id": "accounts/fireworks/models/deepseek-v4-pro",
+      "display_name": "DeepSeek V4 Pro",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1000000,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_inference_infer_gpt-5_6-sol_official",
+      "provider_id": "p_inference",
+      "model_id": "infer/gpt-5.6-sol:official",
+      "display_name": "GPT-5.6 Sol (Official API)",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 271999,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 2.5,
+      "output_per_1m": 12.5,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
+    },
+    {
+      "id": "m_inference_infer_gpt-6-astra_official",
+      "provider_id": "p_inference",
+      "model_id": "infer/gpt-6-astra:official",
+      "display_name": "GPT-6 Astra (Official API)",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 271999,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "input_per_1m": 12.5,
+      "output_per_1m": 62.5,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-16T04:01:21Z"
     }
   ],
   "cheap_flagships": [
@@ -71482,12 +71947,12 @@
     },
     {
       "rank": 31,
-      "model_id": "google/gemma-3-12b-it",
-      "display_name": "Gemma 3 12B",
-      "provider": "Novita",
-      "input_per_1m": 0.05,
+      "model_id": "~deepseek/deepseek-v4-flash-latest",
+      "display_name": "DeepSeek V4 Flash Latest",
+      "provider": "OpenRouter (free variants)",
+      "input_per_1m": 0.04,
       "output_per_1m": 0.1,
-      "context_window": 131072
+      "context_window": 1310720
     },
     {
       "rank": 32,
@@ -79111,6 +79576,211 @@
       "at": "2026-09-16T03:51:16Z",
       "kind": "added",
       "text": "catalog: added Hcnsec (hcnsec)"
+    },
+    {
+      "at": "2026-09-16T04:00:53Z",
+      "kind": "verified",
+      "text": "agent run started"
+    },
+    {
+      "at": "2026-09-16T04:00:53Z",
+      "kind": "verified",
+      "text": "zai: model list gated behind login/API key \u2014 set ZAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:54Z",
+      "kind": "verified",
+      "text": "groq: model list gated behind login/API key \u2014 set GROQ_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:54Z",
+      "kind": "verified",
+      "text": "google-ai-studio: model list gated behind login/API key \u2014 set GOOGLE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:54Z",
+      "kind": "verified",
+      "text": "cerebras: model list gated behind login/API key \u2014 set CEREBRAS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:54Z",
+      "kind": "verified",
+      "text": "mistral: model list gated behind login/API key \u2014 set MISTRAL_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:54Z",
+      "kind": "verified",
+      "text": "cohere: model list gated behind login/API key \u2014 set COHERE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:54Z",
+      "kind": "verified",
+      "text": "together: model list gated behind login/API key \u2014 set TOGETHER_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:54Z",
+      "kind": "verified",
+      "text": "fireworks: model list gated behind login/API key \u2014 set FIREWORKS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:55Z",
+      "kind": "verified",
+      "text": "github-models: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:00:56Z",
+      "kind": "verified",
+      "text": "qwen-bailian: model list gated behind login/API key \u2014 set DASHSCOPE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:57Z",
+      "kind": "verified",
+      "text": "moonshot: model list gated behind login/API key \u2014 set MOONSHOT_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:58Z",
+      "kind": "verified",
+      "text": "deepseek: model list gated behind login/API key \u2014 set DEEPSEEK_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:59Z",
+      "kind": "verified",
+      "text": "siliconflow: model list gated behind login/API key \u2014 set SILICONFLOW_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:00:59Z",
+      "kind": "verified",
+      "text": "zuki: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:00:59Z",
+      "kind": "verified",
+      "text": "nagaai: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:00:59Z",
+      "kind": "verified",
+      "text": "anannas: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:01:00Z",
+      "kind": "verified",
+      "text": "nscale: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:01:00Z",
+      "kind": "verified",
+      "text": "publicai: model list gated behind login/API key \u2014 set PUBLICAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:01:10Z",
+      "kind": "verified",
+      "text": "glhf: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:01:11Z",
+      "kind": "verified",
+      "text": "bai: model list gated behind login/API key \u2014 set BAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:01:11Z",
+      "kind": "verified",
+      "text": "targon: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:01:14Z",
+      "kind": "verified",
+      "text": "hcap: model list gated behind login/API key \u2014 set a provider API key to verify"
+    },
+    {
+      "at": "2026-09-16T04:01:15Z",
+      "kind": "verified",
+      "text": "experiential-labs: model list gated behind login/API key \u2014 set EXPERIENTIAL_LABS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:01:15Z",
+      "kind": "verified",
+      "text": "inference: model list gated behind login/API key \u2014 set POOLSIDE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:01:16Z",
+      "kind": "verified",
+      "text": "tokenrouter: model list gated behind login/API key \u2014 set TOKENROUTER_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:01:16Z",
+      "kind": "verified",
+      "text": "tabitoken: model list gated behind login/API key \u2014 set TABITOKEN_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:01:19Z",
+      "kind": "verified",
+      "text": "hcnsec: model list gated behind login/API key \u2014 set HCNSEC_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:01:19Z",
+      "kind": "verified",
+      "text": "per-provider /v1/models: merged 10 new models"
+    },
+    {
+      "at": "2026-09-16T04:01:19Z",
+      "kind": "verified",
+      "text": "openrouter :free: added 1 models"
+    },
+    {
+      "at": "2026-09-16T04:01:19Z",
+      "kind": "verified",
+      "text": "huggingface free: added 0 models"
+    },
+    {
+      "at": "2026-09-16T04:01:20Z",
+      "kind": "verified",
+      "text": "b.ai: added 0 models"
+    },
+    {
+      "at": "2026-09-16T04:01:20Z",
+      "kind": "verified",
+      "text": "xkiro: 24 free (source-declared), 73 paid/premium listed"
+    },
+    {
+      "at": "2026-09-16T04:01:21Z",
+      "kind": "pricing",
+      "text": "models.dev: backfilled 1205 models, promoted 0 to free, repaired 0 false free flags, leaderboard has 25 entries"
+    },
+    {
+      "at": "2026-09-16T04:01:21Z",
+      "kind": "verified",
+      "text": "openrouter-providers candidates for review: AtlasCloud (openrouter upstream, 1 free models); Nex AGI (openrouter upstream, 2 free models); Thinking Machines (openrouter upstream, 2 free models) \u2014 endpoint https://tinker.thinkingmachines.dev/services/tinker-prod/anthropic/api/v1 answered 'error'; Decart (openrouter upstream, 1 free models); Liquid (openrouter upstream, 2 free models); Fish Audio (openrouter upstream, 1 free models)\u2026"
+    },
+    {
+      "at": "2026-09-16T04:01:21Z",
+      "kind": "added",
+      "text": "models.dev seeding: added 12 catalog rows for gated/unreachable providers"
+    },
+    {
+      "at": "2026-09-16T04:01:38Z",
+      "kind": "added",
+      "text": "community-list promotion: 0 new providers"
+    },
+    {
+      "at": "2026-09-16T04:01:38Z",
+      "kind": "verifier",
+      "text": "orchestrator disabled: no LLM key configured (add a provider in Settings \u2192 Intelligence, or set OPENAI_API_KEY / ANTHROPIC_API_KEY)"
+    },
+    {
+      "at": "2026-09-16T04:01:38Z",
+      "kind": "verifier",
+      "text": "verifier disabled: no LLM key configured (add a provider in Settings \u2192 Intelligence, or set OPENAI_API_KEY / ANTHROPIC_API_KEY on the server)"
+    },
+    {
+      "at": "2026-09-16T04:01:38Z",
+      "kind": "verifier",
+      "text": "verifier: 0 verdicts (0 expired, 0 rebranded)"
+    },
+    {
+      "at": "2026-09-16T04:01:38Z",
+      "kind": "verified",
+      "text": "agent run finished in 45.1s"
     }
   ],
   "credit_providers": [
