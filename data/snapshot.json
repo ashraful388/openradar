@@ -1,5 +1,5 @@
 {
-  "snapshot_at": "2026-09-16T04:00:53Z",
+  "snapshot_at": "2026-09-16T04:55:29Z",
   "schema_version": 1,
   "providers": [
     {
@@ -46,7 +46,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-16T04:00:53Z"
+      "last_verified": "2026-09-16T04:55:30Z"
     },
     {
       "id": "p_groq",
@@ -64,8 +64,8 @@
       "tagline": "",
       "notes": "",
       "catch": "",
-      "free_model_count": 3,
-      "pricing_status": "{\"free\": 3, \"paid_with_price\": 9, \"paid_no_price\": 4, \"total\": 16}",
+      "free_model_count": 0,
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 10, \"paid_no_price\": 6, \"total\": 16}",
       "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
@@ -140,8 +140,8 @@
       "tagline": "",
       "notes": "",
       "catch": "",
-      "free_model_count": 9,
-      "pricing_status": "{\"free\": 9, \"paid_with_price\": 31, \"paid_no_price\": 28, \"total\": 68}",
+      "free_model_count": 0,
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 32, \"paid_no_price\": 36, \"total\": 68}",
       "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
@@ -188,8 +188,8 @@
       "tagline": "",
       "notes": "",
       "catch": "",
-      "free_model_count": 1,
-      "pricing_status": "{\"free\": 1, \"paid_with_price\": 39, \"paid_no_price\": 249, \"total\": 289}",
+      "free_model_count": 0,
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 39, \"paid_no_price\": 250, \"total\": 289}",
       "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
@@ -239,7 +239,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-16T04:00:55Z"
+      "last_verified": "2026-09-16T04:55:32Z"
     },
     {
       "id": "p_sambanova",
@@ -262,7 +262,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-16T04:00:55Z"
+      "last_verified": "2026-09-16T04:55:32Z"
     },
     {
       "id": "p_nvidia",
@@ -288,7 +288,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-16T04:00:55Z"
+      "last_verified": "2026-09-16T04:55:32Z"
     },
     {
       "id": "p_cloudflare",
@@ -364,7 +364,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-16T04:00:55Z"
+      "last_verified": "2026-09-16T04:55:32Z"
     },
     {
       "id": "p_openrouter",
@@ -387,7 +387,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-16T04:00:56Z"
+      "last_verified": "2026-09-16T04:55:32Z"
     },
     {
       "id": "p_qwen",
@@ -571,7 +571,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-16T04:00:59Z"
+      "last_verified": "2026-09-16T04:55:38Z"
     },
     {
       "id": "p_nscale",
@@ -612,8 +612,8 @@
       "tagline": "",
       "notes": "",
       "catch": "",
-      "free_model_count": 9,
-      "pricing_status": "{\"free\": 9, \"paid_with_price\": 0, \"paid_no_price\": 0, \"total\": 9}",
+      "free_model_count": 0,
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 9, \"total\": 9}",
       "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
@@ -709,7 +709,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:20Z",
-      "last_verified": "2026-09-16T04:01:12Z"
+      "last_verified": "2026-09-16T04:55:50Z"
     },
     {
       "id": "p_api_2",
@@ -732,7 +732,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:21Z",
-      "last_verified": "2026-09-16T04:01:12Z"
+      "last_verified": "2026-09-16T04:55:50Z"
     },
     {
       "id": "p_helixmind",
@@ -755,7 +755,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:23Z",
-      "last_verified": "2026-09-16T04:01:13Z"
+      "last_verified": "2026-09-16T04:55:51Z"
     },
     {
       "id": "p_api_3",
@@ -778,7 +778,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:31Z",
-      "last_verified": "2026-09-16T04:01:13Z"
+      "last_verified": "2026-09-16T04:55:51Z"
     },
     {
       "id": "p_api_4",
@@ -801,7 +801,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:33Z",
-      "last_verified": "2026-09-16T04:01:14Z"
+      "last_verified": "2026-09-16T04:55:52Z"
     },
     {
       "id": "p_hcap",
@@ -847,7 +847,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-08T11:46:56Z",
-      "last_verified": "2026-09-16T04:01:15Z"
+      "last_verified": "2026-09-16T04:55:53Z"
     },
     {
       "id": "p_experiential",
@@ -46505,9 +46505,9 @@
         "chat"
       ],
       "context_window": 4096,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "$0/M (models.dev)",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "$0/M (models.dev) [demoted: provider gated, no evidence]",
       "free_verified_at": null,
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -46589,9 +46589,9 @@
         "chat"
       ],
       "context_window": 131072,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T16:50:27Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -46610,9 +46610,9 @@
         "chat"
       ],
       "context_window": 131072,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T16:50:28Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -47997,9 +47997,9 @@
         "ocr"
       ],
       "context_window": 256000,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "$0/M (models.dev)",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "$0/M (models.dev) [demoted: provider gated, no evidence]",
       "free_verified_at": null,
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56677,9 +56677,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:14Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56698,9 +56698,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:18Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56719,9 +56719,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:20Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56740,9 +56740,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:22Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56761,9 +56761,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:24Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56782,9 +56782,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:26Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56803,9 +56803,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:28Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56824,9 +56824,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:30Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56845,9 +56845,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T18:11:32Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56889,9 +56889,9 @@
         "ocr"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:02:59Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56912,9 +56912,9 @@
         "ocr"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:03:00Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -56935,9 +56935,9 @@
         "ocr"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:03:01Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -57004,9 +57004,9 @@
         "ocr"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:03:06Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -57073,9 +57073,9 @@
         "ocr"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:03:09Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -57096,9 +57096,9 @@
         "ocr"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:03:10Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -57119,9 +57119,9 @@
         "ocr"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:03:11Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -57142,9 +57142,9 @@
         "ocr"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:03:12Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -57984,9 +57984,9 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": true,
-      "free_kind": "free_tier",
-      "free_limit": "[1-token probe verified]",
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "[1-token probe verified] [demoted: provider gated, no evidence]",
       "free_verified_at": "2026-09-08T19:03:59Z",
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
@@ -79791,6 +79791,211 @@
       "at": "2026-09-16T04:53:16Z",
       "kind": "added",
       "text": "catalog: added credit provider Hcnsec (p_hcnsec)"
+    },
+    {
+      "at": "2026-09-16T04:55:29Z",
+      "kind": "pricing",
+      "text": "cleanup: demoted 22 legacy free claims on needs_key providers without evidence"
+    },
+    {
+      "at": "2026-09-16T04:55:29Z",
+      "kind": "verified",
+      "text": "agent run started"
+    },
+    {
+      "at": "2026-09-16T04:55:30Z",
+      "kind": "verified",
+      "text": "zai: model list gated behind login/API key \u2014 set ZAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:30Z",
+      "kind": "verified",
+      "text": "groq: model list gated behind login/API key \u2014 set GROQ_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:30Z",
+      "kind": "verified",
+      "text": "google-ai-studio: model list gated behind login/API key \u2014 set GOOGLE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:30Z",
+      "kind": "verified",
+      "text": "cerebras: model list gated behind login/API key \u2014 set CEREBRAS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:30Z",
+      "kind": "verified",
+      "text": "mistral: model list gated behind login/API key \u2014 set MISTRAL_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:31Z",
+      "kind": "verified",
+      "text": "cohere: model list gated behind login/API key \u2014 set COHERE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:31Z",
+      "kind": "verified",
+      "text": "together: model list gated behind login/API key \u2014 set TOGETHER_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:31Z",
+      "kind": "verified",
+      "text": "fireworks: model list gated behind login/API key \u2014 set FIREWORKS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:32Z",
+      "kind": "verified",
+      "text": "github-models: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:55:33Z",
+      "kind": "verified",
+      "text": "qwen-bailian: model list gated behind login/API key \u2014 set DASHSCOPE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:35Z",
+      "kind": "verified",
+      "text": "moonshot: model list gated behind login/API key \u2014 set MOONSHOT_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:35Z",
+      "kind": "verified",
+      "text": "deepseek: model list gated behind login/API key \u2014 set DEEPSEEK_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:37Z",
+      "kind": "verified",
+      "text": "siliconflow: model list gated behind login/API key \u2014 set SILICONFLOW_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:37Z",
+      "kind": "verified",
+      "text": "zuki: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:55:37Z",
+      "kind": "verified",
+      "text": "nagaai: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:55:37Z",
+      "kind": "verified",
+      "text": "anannas: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:55:38Z",
+      "kind": "verified",
+      "text": "nscale: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:55:38Z",
+      "kind": "verified",
+      "text": "publicai: model list gated behind login/API key \u2014 set PUBLICAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:48Z",
+      "kind": "verified",
+      "text": "glhf: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:55:49Z",
+      "kind": "verified",
+      "text": "bai: model list gated behind login/API key \u2014 set BAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:49Z",
+      "kind": "verified",
+      "text": "targon: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-16T04:55:52Z",
+      "kind": "verified",
+      "text": "hcap: model list gated behind login/API key \u2014 set a provider API key to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:53Z",
+      "kind": "verified",
+      "text": "experiential-labs: model list gated behind login/API key \u2014 set EXPERIENTIAL_LABS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:53Z",
+      "kind": "verified",
+      "text": "inference: model list gated behind login/API key \u2014 set POOLSIDE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:54Z",
+      "kind": "verified",
+      "text": "tokenrouter: model list gated behind login/API key \u2014 set TOKENROUTER_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:54Z",
+      "kind": "verified",
+      "text": "tabitoken: model list gated behind login/API key \u2014 set TABITOKEN_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:55Z",
+      "kind": "verified",
+      "text": "hcnsec: model list gated behind login/API key \u2014 set HCNSEC_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-16T04:55:55Z",
+      "kind": "verified",
+      "text": "per-provider /v1/models: merged 0 new models"
+    },
+    {
+      "at": "2026-09-16T04:55:55Z",
+      "kind": "verified",
+      "text": "openrouter :free: added 0 models"
+    },
+    {
+      "at": "2026-09-16T04:55:55Z",
+      "kind": "verified",
+      "text": "huggingface free: added 0 models"
+    },
+    {
+      "at": "2026-09-16T04:55:56Z",
+      "kind": "verified",
+      "text": "b.ai: added 0 models"
+    },
+    {
+      "at": "2026-09-16T04:55:57Z",
+      "kind": "verified",
+      "text": "xkiro: 24 free (source-declared), 73 paid/premium listed"
+    },
+    {
+      "at": "2026-09-16T04:55:57Z",
+      "kind": "pricing",
+      "text": "models.dev: backfilled 1217 models, promoted 0 to free, repaired 0 false free flags, leaderboard has 25 entries"
+    },
+    {
+      "at": "2026-09-16T04:55:58Z",
+      "kind": "verified",
+      "text": "openrouter-providers candidates for review: AtlasCloud (openrouter upstream, 1 free models); Nex AGI (openrouter upstream, 2 free models); Thinking Machines (openrouter upstream, 2 free models) \u2014 endpoint https://tinker.thinkingmachines.dev/services/tinker-prod/anthropic/api/v1 answered 'error'; Decart (openrouter upstream, 1 free models); Liquid (openrouter upstream, 2 free models); Fish Audio (openrouter upstream, 1 free models)\u2026"
+    },
+    {
+      "at": "2026-09-16T04:56:15Z",
+      "kind": "added",
+      "text": "community-list promotion: 0 new providers"
+    },
+    {
+      "at": "2026-09-16T04:56:15Z",
+      "kind": "verifier",
+      "text": "orchestrator disabled: no LLM key configured (add a provider in Settings \u2192 Intelligence, or set OPENAI_API_KEY / ANTHROPIC_API_KEY)"
+    },
+    {
+      "at": "2026-09-16T04:56:15Z",
+      "kind": "verifier",
+      "text": "verifier disabled: no LLM key configured (add a provider in Settings \u2192 Intelligence, or set OPENAI_API_KEY / ANTHROPIC_API_KEY on the server)"
+    },
+    {
+      "at": "2026-09-16T04:56:15Z",
+      "kind": "verifier",
+      "text": "verifier: 0 verdicts (0 expired, 0 rebranded)"
+    },
+    {
+      "at": "2026-09-16T04:56:15Z",
+      "kind": "verified",
+      "text": "agent run finished in 46.0s"
     }
   ],
   "credit_providers": [
