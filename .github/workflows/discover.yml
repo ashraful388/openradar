@@ -131,5 +131,10 @@ jobs:
             echo "no changes"
           else
             git commit -m "agent: refresh ($(date -u +%FT%TZ))"
+            # A racing run (e.g. two quick pushes) may have committed
+            # first — rebase our fresh snapshot on top rather than fail.
+            # "theirs" in a rebase is OUR replayed commit (the fresher
+            # agent data), so conflicts resolve in its favor.
+            git pull --rebase -X theirs origin main || git rebase --abort
             git push
           fi
