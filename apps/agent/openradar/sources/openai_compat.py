@@ -70,10 +70,19 @@ def fetch_models(base_url: str, api_key: str | None = None,
 
 
 def verify_openai_compatible(base_url: str, timeout: float = 5.0) -> bool:
-    """A provider is OpenAI-compatible if /v1/models returns 200 (or 401, which still proves the route)."""
+    """A provider is OpenAI-compatible if /v1/models answers with a
+    JSON-shaped body: 200 with a model list, or 401/403 with a JSON
+    error — the signature of a key-gated gateway whose list is merely
+    locked. HTML responses (console login pages, docs and marketing
+    sites) never qualify, however they answer: without this check every
+    console host on a community list got promoted as a "gated provider"."""
     url = base_url.rstrip("/") + "/models"
     try:
-        r = httpx.get(url, timeout=timeout)
+        r = httpx.get(url, timeout=timeout, follow_redirects=True)
     except httpx.HTTPError:
         return False
-    return r.status_code in (200, 401)
+    if r.status_code not in (200, 401, 403):
+        return False
+    body = (r.text or "").lstrip()
+    return body.startswith("{") or body.startswith("[") or \
+        "application/json" in (r.headers.get("content-type") or "")

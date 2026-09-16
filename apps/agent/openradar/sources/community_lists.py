@@ -35,6 +35,14 @@ NOISE_HOSTS = {
     "notion.site", "figma.com", "drive.google.com", "docs.google.com", "sheets.google.com",
     "arxiv.org", "doi.org", "zenodo.org", "githubusercontent.com", "paypal.com",
     "buymeacoffee.com", "patreon.com", "kofi.com", "opencollective.com",
+    # Consoles/docs of providers we already catalog by their API host, local
+    # tools, and paste sites — their /v1/models may even answer JSON errors,
+    # but they are not API hosts (proven by a bad promotion burst on
+    # 2026-09-16; the JSON check in openai_compat catches the rest).
+    "aistudio.google.com", "platform.deepseek.com", "bailian.console.alibabacloud.com",
+    "console.scaleway.com", "console.upstage.ai", "tokenfactory.nebius.com",
+    "modelscope.cn", "experiments.hetzner.com", "www.coze.com",
+    "ollama.com", "lmstudio.ai", "rentry.co", "onrender.com",
 }
 
 # Hosts that look like CDNs / image hosts and should be filtered out by suffix.
