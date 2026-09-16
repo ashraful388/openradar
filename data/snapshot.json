@@ -369,7 +369,7 @@
     {
       "id": "p_openrouter",
       "slug": "openrouter",
-      "name": "Free Models Router - API Pricing &amp; Providers | OpenRouter",
+      "name": "OpenRouter (free variants)",
       "region": "Global",
       "api_base": "https://openrouter.ai/api/v1",
       "openai_compatible": true,
@@ -80795,6 +80795,11 @@
       "at": "2026-09-16T05:44:44Z",
       "kind": "verified",
       "text": "agent run finished in 92.7s"
+    },
+    {
+      "at": "2026-09-16T05:53:50Z",
+      "kind": "verified",
+      "text": "cleanup: restored OpenRouter display name (a search hit had renamed it)"
     }
   ],
   "credit_providers": [

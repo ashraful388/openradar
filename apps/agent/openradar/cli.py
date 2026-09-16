@@ -1336,10 +1336,14 @@ def ingest_search(snap: Snapshot) -> int:
                 continue
             # Check if we already know this host
             if host in known_hosts:
-                # Update existing provider if we have better info
+                # Update existing provider if we have better info — but a
+                # search hit's title never overwrites a real brand name
+                # (SEO titles like "Free Models Router - API Pricing" are
+                # not an upgrade over "OpenRouter"). Only fill a generic
+                # or missing name.
                 for p in snap.providers:
                     if p.homepage_host() == host:
-                        if title and (not p.name or p.name.lower() != title.lower()):
+                        if title and promote.is_generic_name(p.name) and p.name.lower() != title.lower():
                             old_name = p.name
                             p.name = title
                             updated += 1
