@@ -30,9 +30,11 @@ def is_free(model: dict) -> bool:
         return True
     pricing = model.get("pricing") or {}
     try:
-        prompt = float(pricing.get("prompt", "1") or "1")
-        comp = float(pricing.get("completion", "1") or "1")
+        prompt = parse_price(pricing.get("prompt"))
+        comp = parse_price(pricing.get("completion"))
     except (TypeError, ValueError):
+        return False
+    if prompt is None or comp is None:
         return False
     return prompt == 0 and comp == 0
 

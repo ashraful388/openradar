@@ -61,7 +61,6 @@ def load_existing() -> Snapshot:
             _repair_generic_names(snap)
             _fill_homepages(snap)
             _merge_catalog_providers(snap)
-            _merge_credit_providers(snap)
             # Clean up legacy free claims: providers with needs_key probe status
             # should not have is_free=True models without evidence source
             _cleanup_legacy_free_claims(snap)
@@ -138,26 +137,6 @@ def _merge_catalog_providers(snap: Snapshot) -> int:
             p.api_base = seed.api_base
         if seed.homepage and p.homepage != seed.homepage:
             p.homepage = seed.homepage
-    return added
-
-
-def _merge_credit_providers(snap: Snapshot) -> int:
-    """Add catalog CREDIT_PROVIDERS that are missing from the snapshot's
-    credit list — same seed-and-correct philosophy as
-    _merge_catalog_providers: catalog edits must reach the next run's
-    snapshot, and nothing is ever removed. Returns rows added."""
-    known = {c.provider_id for c in snap.credit_providers}
-    added = 0
-    for seed in CREDIT_PROVIDERS:
-        if seed.provider_id in known:
-            continue
-        snap.credit_providers.append(seed)
-        known.add(seed.provider_id)
-        added += 1
-        snap.changelog.append(Change(
-            kind="added",
-            text=f"catalog: added credit provider {seed.name} ({seed.provider_id})",
-        ))
     return added
 
 
@@ -321,6 +300,10 @@ def _dedup_models(snap: Snapshot) -> int:
                 primary.cache_write_per_1m = other.cache_write_per_1m
             if primary.context_window is None:
                 primary.context_window = other.context_window
+            if (other.catalog_source_url and other.catalog_checked_at
+                    and (not primary.catalog_checked_at or other.catalog_checked_at > primary.catalog_checked_at)):
+                primary.catalog_source_url = other.catalog_source_url
+                primary.catalog_checked_at = other.catalog_checked_at
             primary.last_verified = max(primary.last_verified, other.last_verified)
         kept.append(primary)
         removed += len(rows) - 1
@@ -602,38 +585,6 @@ def ingest_provider_endpoints(snap: Snapshot) -> int:
     return added
 
 
-def refresh_provider_metadata(snap: Snapshot) -> int:
-    """Refresh provider metadata (homepage, name) from live endpoints.
-    
-    For providers with working /v1/models, fetch the root endpoint or
-    known metadata paths to update homepage, name, etc. This catches
-    rebrands, domain changes, etc. that the static catalog won't.
-    Returns number of providers updated."""
-    updated = 0
-    for p in snap.providers:
-        if p.probe_status != "ok" or not p.api_base:
-            continue
-        # Try common metadata endpoints
-        # Some providers expose /models or /info or just the base URL
-        # For now, we'll derive from the API base if homepage is missing
-        if not p.homepage and p.api_base:
-            # Derive homepage from api_base (e.g., api.example.com/v1 -> example.com)
-            try:
-                from urllib.parse import urlparse
-                parsed = urlparse(p.api_base)
-                host = parsed.netloc.replace("api.", "").replace("www.", "")
-                if host and not host.startswith("api."):
-                    derived = f"https://{host}"
-                    if p.homepage != derived:
-                        p.homepage = derived
-                        updated += 1
-                        snap.changelog.append(Change(kind="verified", text=f"refresh: derived homepage {derived} for {p.slug} from api_base"))
-            except Exception:
-                pass
-        # TODO: Could also hit /v1/models and check for server headers, OpenAPI spec, etc.
-    return updated
-
-
 def enforce_pricing_consistency(snap: Snapshot) -> int:
     """Hard invariant, enforced on every run: a model with explicit
     positive pricing (input or output > 0 per 1M) is NOT free, no
@@ -709,27 +660,34 @@ def ingest_openrouter(snap: Snapshot, taken_ids: set[str], taken_slugs: set[str]
         prov = _ensure_provider_openrouter(snap, up, taken_ids, taken_slugs)
         ctx = sources.openrouter.context_window(m)
         display = str(m.get("name") or mid)
-        if not _add_model(snap, prov.id, mid, display,
-                          modality=["chat"], is_free=True,
-                          free_kind="free_tier", free_limit="OpenRouter free variant",
-                          context_window=ctx,
-                          free_evidence_source="openrouter",
-                          free_evidence_timestamp=now()):
-            # Already present — but if step 1 (ingest_provider_endpoints)
-            # created it as a bare byok_required row, OpenRouter's own
-            # :free declaration is the stronger evidence. Upgrade it.
-            for existing in snap.models:
-                if (existing.provider_id == prov.id
-                        and existing.model_id == mid
-                        and not existing.is_free):
-                    existing.is_free = True
-                    existing.free_kind = "free_tier"
-                    existing.free_limit = "OpenRouter free variant"
-                    existing.free_evidence_source = "openrouter"
-                    existing.free_evidence_timestamp = now()
-                    existing.context_window = existing.context_window or ctx
-                    added += 1
-                    break
+        if _add_model(snap, prov.id, mid, display,
+                      modality=["chat"], is_free=True,
+                      free_kind="free_tier", free_limit="OpenRouter free variant",
+                      context_window=ctx,
+                      free_evidence_source="openrouter",
+                      free_evidence_timestamp=now()):
+            added += 1
+            continue
+        # Already present — but if step 1 (ingest_provider_endpoints)
+        # created it as a bare byok_required row, OpenRouter's own
+        # :free declaration is the stronger evidence. Upgrade it.
+        # Case-fold the id: sources list the same model in different
+        # casing and step 1's existence check is case-insensitive.
+        # Also bump the row's verified time so stale counts stay honest.
+        mid_cf = mid.casefold()
+        for existing in snap.models:
+            if existing.provider_id != prov.id or existing.model_id.casefold() != mid_cf:
+                continue
+            if not existing.is_free:
+                existing.is_free = True
+                existing.free_kind = "free_tier"
+                existing.free_limit = "OpenRouter free variant"
+                existing.free_evidence_source = "openrouter"
+                existing.free_evidence_timestamp = now()
+                existing.context_window = existing.context_window or ctx
+                added += 1
+            existing.last_verified = now()
+            break
     return added
 
 
@@ -792,6 +750,76 @@ def seed_models_from_models_dev(snap: Snapshot, raw: dict) -> int:
                             m.input_per_1m = inp
                             m.output_per_1m = out
                             break
+    return added
+
+
+def ingest_public_catalog(snap: Snapshot) -> int:
+    added = 0
+    for provider in snap.providers:
+        if provider.id not in sources.public_catalog.URLS or provider.probe_status not in {"needs_key", "gated", "error", "skipped"}:
+            continue
+        try:
+            rows = sources.public_catalog.fetch(provider.id)
+        except Exception as e:
+            snap.changelog.append(Change(
+                kind="verified",
+                text=f"public catalog {provider.slug}: refresh failed ({type(e).__name__})",
+            ))
+            continue
+        if not rows:
+            continue
+        checked_at = now()
+        url = sources.public_catalog.URLS[provider.id]
+        known = {m.model_id.casefold(): m for m in snap.models if m.provider_id == provider.id}
+        docs_owned = {mid for mid, m in known.items()
+                      if m.free_evidence_source == "docs" and m.catalog_source_url == url}
+        listed = {row.model_id.casefold(): row for row in rows}
+        for mid, row in listed.items():
+            model = known.get(mid)
+            if model is None:
+                model = Model(
+                    id=_model_id_for(snap, provider.id, row.model_id),
+                    provider_id=provider.id, model_id=row.model_id,
+                    display_name=row.model_id, modality=provider.modalities,
+                    last_verified="",
+                )
+                snap.models.append(model)
+                known[mid] = model
+                added += 1
+            if model.catalog_checked_at and model.catalog_checked_at > checked_at:
+                continue
+            model.catalog_source_url = url
+            model.catalog_checked_at = checked_at
+            if (model.input_per_1m or 0) > 0 or (model.output_per_1m or 0) > 0:
+                model.is_free = False
+                model.free_kind = "byok_required"
+                continue
+            if (not row.free_limit or model.free_verified_at
+                    or model.free_evidence_source not in {None, "declared", "docs"}
+                    or (model.free_evidence_timestamp and model.free_evidence_timestamp > checked_at)):
+                continue
+            model.is_free = True
+            model.free_kind = "free_tier"
+            model.free_limit = row.free_limit
+            model.free_evidence_source = "docs"
+            model.free_evidence_timestamp = checked_at
+        if provider.id == "p_groq":
+            for mid, model in known.items():
+                row = listed.get(mid)
+                if (mid in docs_owned and model.is_free and model.free_evidence_source == "docs"
+                        and model.catalog_source_url == url and not model.free_verified_at
+                        and (not model.catalog_checked_at or model.catalog_checked_at <= checked_at)
+                        and (not model.free_evidence_timestamp or model.free_evidence_timestamp <= checked_at)
+                        and (row is None or not row.free_limit)):
+                    model.is_free = False
+                    model.free_kind = "byok_required"
+                    model.free_limit = ""
+                    model.free_evidence_source = None
+                    model.free_evidence_timestamp = None
+                    snap.changelog.append(Change(
+                        kind="expired",
+                        text=f"public catalog {provider.slug}: free plan no longer backs {model.model_id}",
+                    ))
     return added
 
 
@@ -1177,198 +1205,24 @@ def ingest_submissions(snap: Snapshot) -> int:
     return processed
 
 
-def _url_host(url: str) -> str:
-    """Lowercase hostname of a URL, without a leading www. — '' if unparsable."""
-    from urllib.parse import urlparse
-    try:
-        host = (urlparse(url).netloc or "").lower()
-    except ValueError:
-        return ""
-    return host[4:] if host.startswith("www.") else host
-
-
-def _promote_submitted_provider(snap: Snapshot, sub: dict, name: str,
-                                taken_ids: set[str], taken_slugs: set[str]) -> bool:
-    """Probe a submission's endpoint and promote it exactly like a
-    community-list candidate: /v1/models must answer. Gated endpoints
-    are promoted too (probe_status=needs_key → the UI shows the KEY?
-    badge); dead or non-API hosts are changelog-only, never promoted.
-    Returns True when a provider row was added."""
-    host = ""
-    for field in ("api_base", "provider_url", "source_url"):
-        host = _url_host((sub.get(field) or "").strip())
-        if host and "." in host and not sources.community_lists._is_noise_host(host):
-            break
-        host = ""
-    if not host:
-        return False
-    if any(host in (p.homepage_host() or "") for p in snap.providers):
-        return False
-    base = (sub.get("api_base") or "").strip() or f"https://{host}/v1"
-    status, rows = sources.openai_compat.fetch_models(base, timeout=10.0)
-    if status == "error" or (status == "ok" and not rows):
-        snap.changelog.append(Change(
-            kind="submit",
-            text=f"submission endpoint {base} answered '{status}' — kept as candidate, not promoted",
-        ))
-        return False
-    prov = promote.make_provider(
-        {"host": host, "name": name, "source": "public submission (Submit form)"},
-        taken_ids, taken_slugs,
-    )
-    if not prov:
-        return False
-    prov.api_base = base
-    prov.homepage = promote.homepage_from_host(base) or f"https://{host}"
-    if status in ("needs_key", "gated"):
-        prov.probe_status = "needs_key" if status == "needs_key" else "gated"
-        prov.api_key_env = f"{prov.slug.upper().replace('-', '_')}_API_KEY"
-        prov.notes = (prov.notes + " | submitter reports free models/credits; "
-                      "/v1/models is token-gated, so the list is unknown until a key is set.").strip(" |")
-    snap.providers.append(prov)
-    if status == "ok":
-        for row in rows:
-            mid = row.get("id") or row.get("name")
-            if mid:
-                _add_model(snap, prov.id, str(mid), row.get("name") or str(mid),
-                           modality=prov.modalities, is_free=False,
-                           free_kind="byok_required", free_limit="")
-    snap.changelog.append(Change(
-        kind="added",
-        text=f"promoted {prov.name} from a public submission — endpoint {base} answered '{status}'"
-             + (f" with {len(rows)} models" if status == "ok" else ""),
-    ))
-    return True
-
-
-def ingest_github_submissions(snap: Snapshot, taken_ids: set[str],
-                              taken_slugs: set[str], cfg: dict) -> int:
-    """Ingest provider submissions filed as GitHub issues by the deployed
-    site's Submit form (Vercel's FS is read-only, so the form can't write
-    submissions.jsonl there — its API route files an issue instead, see
-    apps/web/app/api/submit). Each open `provider-submission` issue gets
-    a changelog entry; when the submitter's endpoint probes as
-    OpenAI-compatible it is promoted like a community-list candidate.
-    Issues are closed after ingestion (needs the workflow's GH_TOKEN);
-    token-less local runs track processed numbers in a state file."""
-    import os as _os
-    from . import github_issues
-
-    repo = (_os.environ.get("OPENRADAR_GITHUB_REPO") or "").strip()
-    if not repo:
-        return 0
-    token = _os.environ.get("GH_TOKEN") or _os.environ.get("GITHUB_TOKEN")
-    auto_promote = bool(cfg["agent"].get("auto_promote_candidates", True))
-    try:
-        issues = github_issues.fetch_open(repo, token)
-    except Exception as e:
-        snap.changelog.append(Change(kind="submit", text=f"github submissions fetch failed: {e}"))
-        return 0
-
-    processed = 0
-    state = github_issues.load_processed()
-    for issue in issues:
-        if issue["number"] in state:
-            continue
-        sub = github_issues.parse_body(issue.get("body") or "")
-        name = (sub.get("provider_name")
-                or issue.get("title", "").replace("Provider submission:", "").strip()
-                or "?")
-        snap.changelog.append(Change(
-            kind="submit",
-            text=f"submission (issue #{issue['number']}): {name} "
-                 f"({sub.get('provider_url') or sub.get('source_url') or 'no url'})",
-        ))
-        processed += 1
-        promoted = _promote_submitted_provider(snap, sub, name, taken_ids, taken_slugs) \
-            if auto_promote else False
-        if token:
-            github_issues.close(
-                repo, issue["number"], token,
-                comment=("Picked up by the OpenRadar discovery agent — "
-                         + ("probed and promoted to the directory; free-tier verification follows on later runs."
-                            if promoted else
-                            "recorded in the changelog. The /v1/models probe did not confirm an "
-                            "OpenAI-compatible endpoint yet, so no provider row was created.")),
-            )
-        else:
-            state.add(issue["number"])
-    if processed and not token:
-        github_issues.save_processed(state)
-    return processed
-
-
 def ingest_search(snap: Snapshot) -> int:
-    # No key gate here: search runs via the keyless DuckDuckGo fallback
-    # when no Brave/Tavily/Exa key is configured (see sources/search.py).
+    if not any(os.environ.get(k) for k in ("BRAVE_SEARCH_API_KEY", "TAVILY_API_KEY", "EXA_API_KEY")):
+        return 0
     queries = [
         "new free LLM API 2026 launch",
         "free AI API tier launch",
         "OpenAI compatible free API provider",
     ]
-    promoted = 0
-    updated = 0
-    known_hosts = {p.homepage_host() for p in snap.providers}
-    taken_ids = {p.id for p in snap.providers}
-    taken_slugs = {p.slug for p in snap.providers}
+    noted = 0
     for q in queries:
         hits = sources.search.search_new_free_apis(q)
-        for h in hits[:5]:  # increased from 3 to 5
+        for h in hits[:3]:
             url = h.get("url") or h.get("link") or h.get("href") or ""
             title = h.get("title") or ""
-            if not url:
-                continue
-            # Extract host from URL
-            try:
-                from urllib.parse import urlparse
-                parsed = urlparse(url)
-                host = parsed.netloc.lower().replace("www.", "")
-                if not host:
-                    continue
-            except Exception:
-                continue
-            # Probe /v1/models to confirm it's a real provider
-            base = f"https://{host}/v1"
-            ok = sources.openai_compat.verify_openai_compatible(base, timeout=5.0)
-            if not ok:
-                # Still log for human review
-                snap.changelog.append(Change(kind="submit", text=f"search hit (unverified): {title} — {url}"))
-                continue
-            # Check if we already know this host
-            if host in known_hosts:
-                # Update existing provider if we have better info — but a
-                # search hit's title never overwrites a real brand name
-                # (SEO titles like "Free Models Router - API Pricing" are
-                # not an upgrade over "OpenRouter"). Only fill a generic
-                # or missing name.
-                for p in snap.providers:
-                    if p.homepage_host() == host:
-                        if title and promote.is_generic_name(p.name) and p.name.lower() != title.lower():
-                            old_name = p.name
-                            p.name = title
-                            updated += 1
-                            snap.changelog.append(Change(kind="verified", text=f"search: updated provider name {old_name!r} → {title!r} (host={host})"))
-                        if not p.homepage:
-                            p.homepage = f"https://{host}"
-                            updated += 1
-                        break
-                continue
-            # New provider — promote it
-            prov = promote.make_provider(
-                {"host": host, "name": title or host, "source": f"search ({q})"},
-                taken_ids, taken_slugs,
-            )
-            if not prov:
-                continue
-            prov.api_base = base
-            prov.homepage = f"https://{host}"
-            snap.providers.append(prov)
-            known_hosts.add(host)
-            taken_ids.add(prov.id)
-            taken_slugs.add(prov.slug)
-            promoted += 1
-            snap.changelog.append(Change(kind="added", text=f"search: auto-promoted {prov.name} (host={host}) from query '{q}'"))
-    return promoted + updated
+            if url:
+                snap.changelog.append(Change(kind="submit", text=f"search hit: {title} — {url}"))
+                noted += 1
+    return noted
 
 
 # ----------------------------- verifier step -------------------------------
@@ -1688,6 +1542,8 @@ def run(once: bool = False) -> Snapshot:
     else:
         snap.changelog.append(Change(kind="pricing", text="models.dev source disabled by config"))
 
+    ingest_public_catalog(snap)
+
     # 5. Community list promotion
     if cfg["agent"].get("include_community_lists", True) and \
        cfg["sources"].get("community_lists", {}).get("enabled", True):
@@ -1726,13 +1582,6 @@ def run(once: bool = False) -> Snapshot:
     if n6:
         snap.changelog.append(Change(kind="submit", text=f"processed {n6} public submissions"))
 
-    # 6b. Submissions filed as GitHub issues by the deployed site's
-    # Submit form (Vercel's FS is read-only, so the form files an issue
-    # instead of appending to submissions.jsonl).
-    n6b = ingest_github_submissions(snap, taken_ids, taken_slugs, cfg)
-    if n6b:
-        snap.changelog.append(Change(kind="submit", text=f"processed {n6b} GitHub-issue submissions"))
-
     # 7. Search APIs (optional)
     if cfg["agent"].get("include_search_apis", True) and \
        cfg["sources"].get("search_apis", {}).get("enabled", True):
@@ -1752,15 +1601,10 @@ def run(once: bool = False) -> Snapshot:
                 text=f"1-token probe: {n_free} verified free, {n_over} overturned, {n_inc} inconclusive",
             ))
 
-    # 8. Refresh provider metadata from live endpoints
-    n_refresh = refresh_provider_metadata(snap)
-    if n_refresh:
-        snap.changelog.append(Change(kind="verified", text=f"refresh: updated {n_refresh} provider metadata from live endpoints"))
-
-    # 9. Mark stale providers: consecutive runs with 0 models + error probe
+    # 8. Mark stale providers: consecutive runs with 0 models + error probe
     _mark_stale_providers(snap)
 
-    # 10. Hard invariant first: paid prices must never coexist with a
+    # 9. Hard invariant first: paid prices must never coexist with a
     # free flag — then recompute every provider's free_model_count from
     # the actual model list. This catches cases where a later step
     # flipped a row to is_free=True after the in-loop count was set.
