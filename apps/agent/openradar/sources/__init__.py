@@ -11,6 +11,7 @@ from . import (
     probe,
     xkiro,
     openrouter_providers,
+    public_catalog,
 )
 
 __all__ = [
@@ -25,4 +26,5 @@ __all__ = [
     "probe",
     "xkiro",
     "openrouter_providers",
+    "public_catalog",
 ]
