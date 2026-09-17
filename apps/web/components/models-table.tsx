@@ -20,8 +20,8 @@ const SORT_COLUMNS: { key: SortKey; label: string; numeric?: boolean }[] = [
 ];
 
 function priceOf(m: Model): number | null {
-  if (m.input_per_1m == null && m.output_per_1m == null) return null;
-  return (m.input_per_1m ?? 0) + (m.output_per_1m ?? 0);
+  if (m.input_per_1m == null || m.output_per_1m == null) return null;
+  return m.input_per_1m + m.output_per_1m;
 }
 
 export function ModelsTable({
@@ -44,7 +44,7 @@ export function ModelsTable({
     const needle = q.trim().toLowerCase();
     return models.filter((m) => {
       if (onlyFree && !m.is_free) return false;
-      if (onlyPriced && (m.input_per_1m == null || m.output_per_1m == null)) return false;
+      if (onlyPriced && (m.is_free || !((m.input_per_1m ?? 0) > 0 || (m.output_per_1m ?? 0) > 0))) return false;
       if (providerId && m.provider_id !== providerId) return false;
       if (mods.size > 0 && !m.modality.some((x) => mods.has(x))) return false;
       if (needle) {
@@ -78,7 +78,7 @@ export function ModelsTable({
           return dir * (av - bv);
         }
         case "free": {
-          const rank = (m: Model) => (m.is_free ? (m.free_verified_at ? 0 : 1) : 2);
+          const rank = (m: Model) => (m.is_free ? (m.free_evidence_source !== "docs" && m.free_verified_at ? 0 : 1) : 2);
           return dir * (rank(a) - rank(b));
         }
         default:
@@ -292,23 +292,23 @@ export function ModelsTable({
                     <td>
                       {m.is_free ? (
                         <span
-                          className={`badge ${m.free_verified_at ? "badge-free-verified" : "badge-free"}`}
-                          title={m.free_verified_at
-                            ? `Verified free by a live 1-token probe on ${m.free_verified_at.slice(0, 10)}`
-                            : m.free_limit || "Free per provider/docs sources"}
+                          className={`badge ${m.free_evidence_source !== "docs" && m.free_verified_at ? "badge-free-verified" : "badge-free"}`}
+                          title={m.free_evidence_source === "docs"
+                            ? "Documented free; not live verified"
+                            : m.free_verified_at
+                              ? `Verified free by a live 1-token probe on ${m.free_verified_at.slice(0, 10)}`
+                              : m.free_limit || "Free per reported sources"}
                         >
-                          free
+                          {m.free_evidence_source === "docs" ? "documented free" : m.free_verified_at ? "free ✓" : "free"}
                         </span>
-                      ) : m.input_per_1m != null || m.output_per_1m != null ? (
+                      ) : (m.input_per_1m ?? 0) > 0 || (m.output_per_1m ?? 0) > 0 ? (
                         <span className="badge badge-paid">paid</span>
                       ) : (
                         <span className="dim">unverified</span>
                       )}
                     </td>
                     <td className="col-num mono dim">
-                      {m.input_per_1m != null || m.output_per_1m != null
-                        ? `$${(m.input_per_1m ?? 0).toFixed(2)} / $${(m.output_per_1m ?? 0).toFixed(2)}`
-                        : "—"}
+                      {`${m.input_per_1m == null ? "?" : `$${m.input_per_1m.toFixed(2)}`} / ${m.output_per_1m == null ? "?" : `$${m.output_per_1m.toFixed(2)}`}`}
                     </td>
                     <td className="dim">{m.free_limit || "—"}</td>
                   </tr>
