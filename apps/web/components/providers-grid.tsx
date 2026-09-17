@@ -5,7 +5,10 @@ import { useMemo, useState } from "react";
 import type { Provider } from "../lib/snapshot";
 import { StatusDot } from "./status-dot";
 
-export function ProvidersGrid({ providers }: { providers: Provider[] }) {
+export function ProvidersGrid({ providers, coverage }: {
+  providers: Provider[];
+  coverage?: Record<string, { listed: number; unknownTier: number }>;
+}) {
   const [q, setQ] = useState("");
   const [region, setRegion] = useState("");
   const [friction, setFriction] = useState("");
@@ -93,15 +96,15 @@ export function ProvidersGrid({ providers }: { providers: Provider[] }) {
                 <div>
                   <dt>Free models</dt>
                   <dd className={p.free_model_count === 0 ? "dim" : "free-count"}>
-                    {p.free_model_count === 0 && p.probe_status === "needs_key" ? (
+                    {p.free_model_count === 0 && (p.probe_status !== "ok" || !coverage?.[p.id]?.listed || coverage[p.id].unknownTier > 0) ? (
                       <span
                         className="badge badge-needskey"
-                        title={`Model list is gated behind login/API key — the count is unknown, not zero. Set ${p.api_key_env ?? "a provider API key"} to unlock verification.`}
+                        title="Free count is unknown, not zero: the live catalog or free-tier evidence is incomplete."
                       >
-                        key?
+                        unknown
                       </span>
                     ) : (
-                      p.free_model_count
+                      `${p.free_model_count} ${p.probe_status === "ok" ? "known" : "reported"}`
                     )}
                   </dd>
                 </div>
@@ -114,6 +117,10 @@ export function ProvidersGrid({ providers }: { providers: Provider[] }) {
                   <dd>{p.signup_friction}</dd>
                 </div>
               </dl>
+              <p className="small dim">
+                Not a complete model list.{p.probe_status !== "ok" ? " No successful live catalog check." : " Free-tier evidence may be partial."}
+                {coverage?.[p.id] ? ` ${coverage[p.id].listed} listed; ${coverage[p.id].unknownTier} with unknown tier.` : ""}
+              </p>
             </Link>
           ))}
         </div>

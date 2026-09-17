@@ -31,6 +31,8 @@ export default async function ProviderPage({
     });
 
   const freeCount = models.filter((m) => m.is_free).length;
+  const unknownTierCount = models.filter((m) => !m.is_free && !((m.input_per_1m ?? 0) > 0 || (m.output_per_1m ?? 0) > 0)).length;
+  const incomplete = provider.probe_status !== "ok" || models.length === 0 || unknownTierCount > 0;
   const needsKey = provider.probe_status === "needs_key";
   const gated = provider.probe_status === "gated";
   const unreachable = provider.probe_status === "error";
@@ -57,7 +59,7 @@ export default async function ProviderPage({
         <div>
           <span className="meta-label">Free models</span>
           <span className="meta-val">
-            {freeCount}
+            {freeCount === 0 && incomplete ? "unknown / not confirmed" : `${freeCount} ${provider.probe_status === "ok" ? "known" : "reported"}`}
             {models.length > 0 ? (
               <span className="dim"> of {models.length} listed</span>
             ) : null}
@@ -94,13 +96,19 @@ export default async function ProviderPage({
           </span>
         </div>
         <div>
-          <span className="meta-label">Last verified</span>
+          <span className="meta-label">Last recorded</span>
           <span className="meta-val">
             <StatusDot verifiedAt={provider.last_verified} />{" "}
             <span className="dim">{provider.last_verified.slice(0, 10)}</span>
           </span>
         </div>
       </div>
+
+      <p className="dim" role="note">
+        This is not a complete model catalog. {unknownTierCount} listed models have unknown free/paid status.
+        {provider.probe_status !== "ok" ? " No successful live catalog check is recorded for this run; positive counts are known/reported entries only." : " A successful catalog request does not confirm every model's free tier."}
+        {" "}Public documentation is not live verification.
+      </p>
 
       {(needsKey || gated || unreachable) && (
         <p className="updated" role="note">
@@ -170,25 +178,42 @@ export default async function ProviderPage({
   );
 }
 
+function safeCatalogUrl(value?: string | null): string | null {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && !url.username && !url.password ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
 function ModelCard({ model, provider }: { model: Model; provider: Provider }) {
-  const priced =
-    model.input_per_1m != null || model.output_per_1m != null;
+  const paid = (model.input_per_1m ?? 0) > 0 || (model.output_per_1m ?? 0) > 0;
+  const documented = model.free_evidence_source === "docs";
+  const probeVerified = !documented && !!model.free_verified_at;
+  const catalogUrl = safeCatalogUrl(model.catalog_source_url);
+  const catalogDate = model.catalog_checked_at && !Number.isNaN(Date.parse(model.catalog_checked_at))
+    ? new Date(model.catalog_checked_at).toISOString().slice(0, 10)
+    : "unknown";
   return (
     <article className="model-card" id={model.id}>
       <div className="model-head">
         <h3 className="model-name">{model.display_name}</h3>
         {model.is_free ? (
           <span
-            className={`badge ${model.free_verified_at ? "badge-free-verified" : "badge-free"}`}
+            className={`badge ${probeVerified ? "badge-free-verified" : "badge-free"}`}
             title={
-              model.free_verified_at
-                ? `Verified free by a live 1-token probe on ${model.free_verified_at.slice(0, 10)}`
-                : "Free per docs/community sources"
+              documented
+                ? `Documented free${model.free_evidence_timestamp ? ` as of ${model.free_evidence_timestamp.slice(0, 10)}` : ""}; not a live probe`
+                : probeVerified
+                  ? `Verified free by a live 1-token probe on ${model.free_verified_at!.slice(0, 10)}`
+                  : "Free per reported sources; not live verified"
             }
           >
-            {model.free_verified_at ? "free ✓" : "free"}
+            {documented ? "documented free" : probeVerified ? "free ✓" : "free"}
           </span>
-        ) : priced ? (
+        ) : paid ? (
           <span className="badge badge-paid">paid</span>
         ) : (
           <span className="dim small" title="No free/paid evidence yet — the agent lists it, but its tier is unverified">
@@ -206,10 +231,16 @@ function ModelCard({ model, provider }: { model: Model; provider: Provider }) {
         {model.context_window
           ? ` · ${model.context_window.toLocaleString()} context`
           : ""}
-        {priced
-          ? ` · $${(model.input_per_1m ?? 0).toFixed(2)} / $${(model.output_per_1m ?? 0).toFixed(2)} per 1M`
-          : ""}
+        {` · ${model.input_per_1m == null ? "?" : `$${model.input_per_1m.toFixed(2)}`} / ${model.output_per_1m == null ? "?" : `$${model.output_per_1m.toFixed(2)}`} per 1M (in / out)`}
       </p>
+      {model.catalog_source_url || model.catalog_checked_at ? (
+        <p className="small dim">
+          Public catalog source: {catalogUrl ? (
+            <a href={catalogUrl} target="_blank" rel="noopener noreferrer">{catalogUrl}</a>
+          ) : "unavailable (missing or invalid HTTPS URL)"}
+          {" · "}Catalog checked: {catalogDate}. Documentation does not confirm live availability or a complete catalog.
+        </p>
+      ) : null}
       {provider.api_base ? (
         <CopyCurl
           base={provider.api_base}

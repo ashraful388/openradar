@@ -152,8 +152,10 @@ export function SettingsForm({
     }
   }
 
-  // Poll /api/run so the status row stays current. We only re-poll
-  // while a job is running; otherwise one initial fetch is enough.
+  // Poll /api/run so the status row stays current. Poll whenever the
+  // tracked job is running (from the initial state OR a Run-now click)
+  // and keep polling to the terminal state; a job started after mount
+  // must still be watched.
   useEffect(() => {
     let timer: any = null;
     let cancelled = false;
@@ -176,7 +178,7 @@ export function SettingsForm({
     };
     tick();
     return () => { cancelled = true; if (timer) clearInterval(timer); };
-  }, []);
+  }, [runState?.last_job_id]);
 
   async function runNow() {
     setRunErr(null);

@@ -1,37 +1,28 @@
 name: discover
 
-# The schedule is a 24-entry matrix — one cron line per possible
-# `*/N` hour value. Each entry is gated on the OPENRADAR_RUN_HOURS
-# repo variable (default 10). GitHub Actions cron is static YAML, so
-# the only way to make the interval configurable from the operator's
-# UI is to enumerate the candidate crons and let the env var pick
-# the live one. The other 23 entries stay dormant.
+# Hourly discovery run. The interval is operator-controlled through the
+# OPENRADAR_RUN_HOURS repo variable (1-24, default 1 = hourly). GitHub
+# Actions cron is static and DROPS schedule slots under load, so the
+# schedule fires twice per hour (:17 and :47) and the gate STEP decides
+# whether to actually run: interval matching (UTC hour divisible by N —
+# the same semantics the old `17 */N` cron matrix had) plus a freshness
+# guard that skips the second slot when the first one already committed
+# a snapshot within the hour.
+#
+# The gate deliberately lives in a step, not in the job-level `if`: a
+# job-if expression cannot see the job's own env context, and referencing
+# it invalidates the whole workflow file ("Unrecognized named-value:
+# 'env'") — which silently disabled every scheduled and push run before.
 on:
+  push:
+    branches: [main]
+    # The agent's own snapshot/changelog commits don't need another run —
+    # they only need the Vercel redeploy that the push itself triggers.
+    paths-ignore:
+      - "data/**"
   schedule:
-    - cron: "17 */1 * * *"   # gated by OPENRADAR_RUN_HOURS=1
-    - cron: "17 */2 * * *"   # ...=2
-    - cron: "17 */3 * * *"   # ...=3
-    - cron: "17 */4 * * *"   # ...=4
-    - cron: "17 */5 * * *"   # ...=5
-    - cron: "17 */6 * * *"   # ...=6
-    - cron: "17 */7 * * *"   # ...=7
-    - cron: "17 */8 * * *"   # ...=8
-    - cron: "17 */9 * * *"   # ...=9
-    - cron: "17 */10 * * *"  # ...=10 (default)
-    - cron: "17 */11 * * *"  # ...=11
-    - cron: "17 */12 * * *"  # ...=12
-    - cron: "17 */13 * * *"  # ...=13
-    - cron: "17 */14 * * *"  # ...=14
-    - cron: "17 */15 * * *"  # ...=15
-    - cron: "17 */16 * * *"  # ...=16
-    - cron: "17 */17 * * *"  # ...=17
-    - cron: "17 */18 * * *"  # ...=18
-    - cron: "17 */19 * * *"  # ...=19
-    - cron: "17 */20 * * *"  # ...=20
-    - cron: "17 */21 * * *"  # ...=21
-    - cron: "17 */22 * * *"  # ...=22
-    - cron: "17 */23 * * *"  # ...=23
-    - cron: "17 */24 * * *"  # ...=24
+    - cron: "17 * * * *" # primary hourly slot
+    - cron: "47 * * * *" # backup slot — catches scheduler drops of :17
   workflow_dispatch:
     inputs:
       reason:
@@ -41,63 +32,83 @@ on:
 
 permissions:
   contents: write
+  issues: write # the agent ingests + closes Submit-form issues
+
+env:
+  # Operator-controlled interval in hours (1-24). Default 1 (hourly),
+  # matching agent.run_interval_hours in data/config.json.
+  OPENRADAR_RUN_HOURS: ${{ vars.OPENRADAR_RUN_HOURS || '1' }}
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    # The schedule matrix above will trigger this job once per matched
-    # entry. We re-gate it here so that only the live interval actually
-    # proceeds — the other 23 cron entries see `run_hours` ≠ requested
-    # and exit early. The `repo:default_branch` reference avoids race
-    # conditions with in-flight PRs.
-    if: >-
-      github.event_name != 'schedule' ||
-      env.OPENRADAR_RUN_HOURS == '1' || env.OPENRADAR_RUN_HOURS == '2' ||
-      env.OPENRADAR_RUN_HOURS == '3' || env.OPENRADAR_RUN_HOURS == '4' ||
-      env.OPENRADAR_RUN_HOURS == '5' || env.OPENRADAR_RUN_HOURS == '6' ||
-      env.OPENRADAR_RUN_HOURS == '7' || env.OPENRADAR_RUN_HOURS == '8' ||
-      env.OPENRADAR_RUN_HOURS == '9' || env.OPENRADAR_RUN_HOURS == '10' ||
-      env.OPENRADAR_RUN_HOURS == '11' || env.OPENRADAR_RUN_HOURS == '12' ||
-      env.OPENRADAR_RUN_HOURS == '13' || env.OPENRADAR_RUN_HOURS == '14' ||
-      env.OPENRADAR_RUN_HOURS == '15' || env.OPENRADAR_RUN_HOURS == '16' ||
-      env.OPENRADAR_RUN_HOURS == '17' || env.OPENRADAR_RUN_HOURS == '18' ||
-      env.OPENRADAR_RUN_HOURS == '19' || env.OPENRADAR_RUN_HOURS == '20' ||
-      env.OPENRADAR_RUN_HOURS == '21' || env.OPENRADAR_RUN_HOURS == '22' ||
-      env.OPENRADAR_RUN_HOURS == '23' || env.OPENRADAR_RUN_HOURS == '24'
-    env:
-      # Operator-controlled interval. Default 10 (matches the previous
-      # behavior). Change in repo variables to retune the cadence.
-      OPENRADAR_RUN_HOURS: ${{ vars.OPENRADAR_RUN_HOURS || '10' }}
-      # Optional — set these as repo secrets to unlock extra sources.
-      BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
-      TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-      EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
-      REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
-      REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-      X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
-      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
+      # Gate AFTER checkout so it can read the last snapshot commit's
+      # age and skip the backup :47 slot when :17 already ran.
+      - name: Interval + freshness gate
+        id: gate
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != "schedule" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          last_ts=$(git log -1 --format=%ct -- data/snapshot.json 2>/dev/null || git log -1 --format=%ct)
+          now_ts=$(date +%s)
+          age_min=$(( (now_ts - last_ts) / 60 ))
+          if [ "$age_min" -lt 55 ]; then
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            echo "snapshot refreshed ${age_min} min ago — fresh enough, skipping this slot"
+            exit 0
+          fi
+          hours="${OPENRADAR_RUN_HOURS:-1}"
+          case "$hours" in ''|*[!0-9]*) hours=1 ;; esac
+          [ "$hours" -lt 1 ] && hours=1
+          [ "$hours" -gt 24 ] && hours=24
+          hour=$(date -u +%-H)
+          if [ "$hours" -eq 1 ] || [ $((hour % hours)) -eq 0 ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            echo "interval is ${hours}h and UTC hour $hour is not a multiple of it — skipping"
+          fi
+
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.proceed == 'true'
         with:
           python-version: "3.12"
 
       - name: Install agent
+        if: steps.gate.outputs.proceed == 'true'
         working-directory: apps/agent
         run: |
           python -m pip install --upgrade pip
           pip install -e .
 
       - name: Run discovery
+        if: steps.gate.outputs.proceed == 'true'
         working-directory: apps/agent
+        env:
+          # Lets the agent ingest + close provider submissions filed as
+          # GitHub issues by the deployed site's Submit form.
+          GH_TOKEN: ${{ github.token }}
+          OPENRADAR_GITHUB_REPO: ${{ github.repository }}
+          # Optional — set these as repo secrets to unlock extra sources.
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: |
           python -m openradar.cli
 
       - name: Append human-readable changelog
-        if: always()
+        if: always() && steps.gate.outputs.proceed == 'true'
         run: |
           python - <<'PY'
           import json, datetime, pathlib
@@ -111,6 +122,7 @@ jobs:
           PY
 
       - name: Commit if changed
+        if: steps.gate.outputs.proceed == 'true'
         run: |
           git config user.name "openradar-bot"
           git config user.email "bot@openradar.local"
@@ -119,5 +131,10 @@ jobs:
             echo "no changes"
           else
             git commit -m "agent: refresh ($(date -u +%FT%TZ))"
+            # A racing run (e.g. two quick pushes) may have committed
+            # first — rebase our fresh snapshot on top rather than fail.
+            # "theirs" in a rebase is OUR replayed commit (the fresher
+            # agent data), so conflicts resolve in its favor.
+            git pull --rebase -X theirs origin main || git rebase --abort
             git push
           fi

@@ -40,6 +40,8 @@ HOMEPAGES: dict[str, str] = {
     "p_experiential": "https://platform.experientiallabs.ai",
     "p_tokenrouter": "https://www.tokenrouter.com",
     "p_tabitoken": "https://tabitoken.com",
+    "p_hcnsec": "https://api.hcnsec.cn",
+    "p_agentrouter": "https://agentrouter.org",
     "p_api": "https://voidai.app",
     "p_api_2": "https://naga.ac",
     "p_helixmind": "https://helixmind.online",
@@ -143,6 +145,20 @@ PROVIDERS: list[Provider] = [
              api_key_env="TABITOKEN_API_KEY",
              tagline="LLM gateway with free models. /v1/models is gated behind an API key.",
              notes="https://tabitoken.com/models lists the catalog; the API answers 401 without a key."),
+    Provider(id="p_hcnsec", slug="hcnsec", name="Hcnsec", region="China",
+             api_base="https://api.hcnsec.cn/v1", openai_compatible=True,
+             api_key_env="HCNSEC_API_KEY",
+             tagline="New API (one-api fork) gateway serving free-credit models; also registered as an OpenRadar verifier provider.",
+             notes="api.hcnsec.cn runs a New API gateway: unauthenticated /v1/models answers "
+                   "{\"error\": {\"type\": \"new_api_error\", \"message\": \"Invalid token\"}} — the list is "
+                   "token-gated, not empty. Set HCNSEC_API_KEY to verify."),
+    Provider(id="p_agentrouter", slug="agentrouter", name="AgentRouter", region="Global",
+             api_base="https://agentrouter.org/v1", openai_compatible=True,
+             api_key_env="AGENTROUTER_API_KEY",
+             tagline="Agent-oriented LLM gateway (one-api family) advertising free models and signup credits; /v1/models is key-gated.",
+             notes="agentrouter.org answers 401 {\"type\": \"unauthorized_client_error\"} without a key "
+                   "(support via their Discord). Set AGENTROUTER_API_KEY to verify; credit terms are "
+                   "published in-console, not on a stable public page."),
 ]
 
 # Pin canonical homepages after the list is built.
@@ -154,6 +170,39 @@ for _p in PROVIDERS:
 # These are separate from the main provider list because they don't provide
 # permanently free API access — they give a one-time credit balance.
 CREDIT_PROVIDERS: list[CreditProvider] = [
+    CreditProvider(
+        provider_id="p_tabitoken",
+        name="TabiToken",
+        signup_bonus_usd=None,
+        credit_expiry_days=None,
+        models_available=["See tabitoken.com/models (list is public; the API is key-gated)"],
+        signup_friction="email",
+        homepage="https://tabitoken.com",
+        notes="Gateway advertising free models and signup credit promos. The credit amount "
+              "varies and isn't published on a stable page — check the site for the current offer.",
+    ),
+    CreditProvider(
+        provider_id="p_hcnsec",
+        name="Hcnsec",
+        signup_bonus_usd=None,
+        credit_expiry_days=None,
+        models_available=["MiniMax-M3", "see console for the full list"],
+        signup_friction="email",
+        homepage="https://api.hcnsec.cn",
+        notes="New API (one-api fork) gateway with signup credit promos — amount varies, check the "
+              "console. Also registered as an OpenRadar verifier provider; /v1/models is token-gated.",
+    ),
+    CreditProvider(
+        provider_id="p_agentrouter",
+        name="AgentRouter",
+        signup_bonus_usd=None,
+        credit_expiry_days=None,
+        models_available=["see console for the full list (/v1/models is key-gated)"],
+        signup_friction="email",
+        homepage="https://agentrouter.org",
+        notes="Agent-oriented gateway advertising free models and signup credits — amount varies, "
+              "check the console or their Discord. Also an OpenRadar verifier candidate.",
+    ),
     CreditProvider(
         provider_id="p_together",
         name="Together AI",

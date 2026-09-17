@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 Modality = Literal["chat", "embedding", "image", "audio_tts", "audio_stt", "video", "rerank", "vision", "code", "ocr"]
 FreeKind = Literal["free_tier", "free_credits", "promo", "trial_card", "byok_required", "community"]
-FreeEvidenceSource = Literal["declared", "openrouter", "models_dev", "bai", "probe", "verifier", "xkiro", "huggingface"]
+FreeEvidenceSource = Literal["declared", "openrouter", "models_dev", "bai", "probe", "verifier", "xkiro", "huggingface", "docs"]
 
 
 def now() -> str:
@@ -63,6 +63,8 @@ class Model(BaseModel):
     free_evidence_source: FreeEvidenceSource | None = None
     # Timestamp when the free evidence was recorded
     free_evidence_timestamp: str | None = None
+    catalog_source_url: str | None = None
+    catalog_checked_at: str | None = None
     # Per-million-token pricing. Optional — most models discovered by
     # `/v1/models` probes don't expose it, but aggregators like b.ai and
     # models.dev do.
@@ -93,7 +95,7 @@ class CreditProvider(BaseModel):
     """Providers that offer free credits/money on signup, not free inference."""
     provider_id: str
     name: str
-    signup_bonus_usd: float
+    signup_bonus_usd: float | None
     credit_expiry_days: int | None
     models_available: list[str]
     signup_friction: str  # email, phone, github, trial_card

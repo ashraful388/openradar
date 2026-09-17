@@ -3,7 +3,7 @@ import path from "path";
 
 export type Modality = "chat" | "embedding" | "image" | "audio_tts" | "audio_stt" | "video" | "rerank" | "vision" | "code" | "ocr";
 export type FreeKind = "free_tier" | "free_credits" | "promo" | "trial_card" | "byok_required" | "community";
-export type FreeEvidenceSource = "declared" | "openrouter" | "models_dev" | "bai" | "probe" | "verifier" | "xkiro" | "huggingface";
+export type FreeEvidenceSource = "declared" | "openrouter" | "models_dev" | "bai" | "probe" | "verifier" | "xkiro" | "huggingface" | "docs";
 
 export type Provider = {
   id: string;
@@ -48,6 +48,8 @@ export type Model = {
   free_evidence_source?: FreeEvidenceSource | null;
   /** When the free evidence was recorded */
   free_evidence_timestamp?: string | null;
+  catalog_source_url?: string | null;
+  catalog_checked_at?: string | null;
   input_per_1m?: number | null;
   output_per_1m?: number | null;
   cache_read_per_1m?: number | null;
