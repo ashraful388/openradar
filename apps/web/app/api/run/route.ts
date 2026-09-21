@@ -42,10 +42,22 @@ async function writeState(s: RunState) {
 }
 
 /** The local-server path only exists where the agent checkout is present
- *  AND the filesystem is writable. On Vercel neither is true. */
+ *  AND the filesystem is writable. On Vercel the deployment bundle can
+ *  include apps/agent (repo-root builds), so existence alone is not
+ *  enough — a write probe decides. VERCEL=1 short-circuits: a hosted
+ *  function never runs the local agent. */
 async function canRunLocally(): Promise<boolean> {
+  if (process.env.VERCEL) return false;
   try {
     await fs.access(AGENT_DIR);
+  } catch {
+    return false;
+  }
+  try {
+    await fs.mkdir(DATA_DIR, { recursive: true });
+    const probe = path.join(DATA_DIR, ".write-probe");
+    await fs.writeFile(probe, "ok");
+    await fs.unlink(probe);
     return true;
   } catch {
     return false;
