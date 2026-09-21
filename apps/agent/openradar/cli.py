@@ -640,7 +640,12 @@ def recompute_free_counts(snap: Snapshot) -> None:
 
 
 def ingest_openrouter(snap: Snapshot, taken_ids: set[str], taken_slugs: set[str]) -> int:
-    """Pull OpenRouter's /v1/models, add every :free variant, create providers for new upstreams."""
+    """Pull OpenRouter's /v1/models, add every :free variant, create providers for new upstreams.
+
+    Also DELISTS: a free variant that disappears from OpenRouter's live
+    list loses its free flag — an "OpenRouter free variant" claim can't
+    outlive the listing it came from. Rows with independent ground truth
+    (a 1-token probe, models.dev $0, b.ai/xkiro/HF evidence) are kept."""
     try:
         rows = sources.openrouter.fetch(timeout=30.0)
     except Exception as e:
@@ -648,10 +653,12 @@ def ingest_openrouter(snap: Snapshot, taken_ids: set[str], taken_slugs: set[str]
         return 0
 
     added = 0
+    live_free_ids: set[str] = set()
     for m in rows:
         if not sources.openrouter.is_free(m):
             continue
         mid = str(m["id"])
+        live_free_ids.add(mid.casefold())
         up = sources.openrouter.upstream(m)
         # Map upstream -> known provider by checking api_base host. The
         # upstream label is often a model series ("meta-llama", "deepseek")
@@ -688,6 +695,31 @@ def ingest_openrouter(snap: Snapshot, taken_ids: set[str], taken_slugs: set[str]
                 added += 1
             existing.last_verified = now()
             break
+
+    # Delisting pass: OpenRouter-sourced free claims whose model is gone
+    # from the live listing (renamed upstream, promo ended, withdrawn).
+    delisted: list[str] = []
+    for existing in snap.models:
+        if existing.provider_id != "p_openrouter":
+            continue
+        if not existing.is_free or existing.free_evidence_source != "openrouter":
+            continue
+        if existing.free_verified_at:
+            continue  # independent ground truth (1-token probe) — keep
+        if existing.model_id.casefold() in live_free_ids:
+            continue
+        existing.is_free = False
+        existing.free_kind = "byok_required"
+        existing.free_limit = "[delisted by OpenRouter]"
+        existing.free_evidence_source = None
+        existing.free_evidence_timestamp = None
+        delisted.append(existing.model_id)
+    if delisted:
+        sample = ", ".join(delisted[:5]) + ("…" if len(delisted) > 5 else "")
+        snap.changelog.append(Change(
+            kind="expired",
+            text=f"openrouter: {len(delisted)} free variants delisted — free flags removed ({sample})",
+        ))
     return added
 
 
@@ -918,11 +950,14 @@ def ingest_xkiro(snap: Snapshot) -> int:
         return 0
     added = 0
     free_n = 0
+    live_free: set[str] = set()
     for row in rows:
         mid = str(row.get("id") or "")
         if not mid:
             continue
         is_f = sources.xkiro.is_free(row)
+        if is_f:
+            live_free.add(mid.casefold())
         ctx = sources.xkiro.context_window(row)
         if _add_model(snap, "p_xkiro", mid, sources.xkiro.display_name(row),
                       modality=["chat"], is_free=is_f,
@@ -947,6 +982,15 @@ def ingest_xkiro(snap: Snapshot) -> int:
                     except (KeyError, TypeError, ValueError):
                         pass
                     break
+    # A source-declared xkiro free claim can't outlive the live tier
+    # listing either; probe-verified rows are kept.
+    delisted = _demote_missing_free(snap, "p_xkiro", "xkiro", live_free,
+                                    "[delisted by Xkiro]")
+    if delisted:
+        snap.changelog.append(Change(
+            kind="expired",
+            text=f"xkiro: {len(delisted)} free models delisted — free flags removed",
+        ))
     snap.changelog.append(Change(
         kind="verified",
         text=f"xkiro: {free_n} free (source-declared), {len(rows) - free_n} paid/premium listed",
@@ -1053,12 +1097,14 @@ def ingest_huggingface(snap: Snapshot) -> int:
         snap.changelog.append(Change(kind="verified", text=f"huggingface fetch failed: {e}"))
         return 0
     added = 0
+    live_free: set[str] = set()
     for m in rows:
         if not sources.huggingface.is_free_via_provider(m):
             continue
         mid = str(m.get("id") or m.get("name") or "")
         if not mid:
             continue
+        live_free.add(mid.casefold())
         ctx = sources.huggingface.context_window(m)
         if _add_model(snap, "p_hf", mid, mid, modality=["chat"],
                       is_free=True, free_kind="free_tier",
@@ -1067,7 +1113,39 @@ def ingest_huggingface(snap: Snapshot) -> int:
                       free_evidence_source="huggingface",
                       free_evidence_timestamp=now()):
             added += 1
+    # Same invariant as OpenRouter: an HF free claim can't outlive the
+    # live listing. Probe-verified rows are kept.
+    delisted = _demote_missing_free(snap, "p_hf", "huggingface", live_free,
+                                    "[delisted by HuggingFace]")
+    if delisted:
+        snap.changelog.append(Change(
+            kind="expired",
+            text=f"huggingface: {len(delisted)} free models delisted — free flags removed",
+        ))
     return added
+
+
+def _demote_missing_free(snap: Snapshot, provider_id: str, evidence: str,
+                         live_ids: set[str], note: str) -> list[str]:
+    """Flip is_free off for rows whose free claim rests on `evidence` but
+    whose model id is absent from the source's live listing this run.
+    Rows with independent ground truth (1-token probe) are never touched.
+    Returns the demoted model ids (for the changelog)."""
+    demoted: list[str] = []
+    for m in snap.models:
+        if m.provider_id != provider_id or not m.is_free:
+            continue
+        if m.free_evidence_source != evidence or m.free_verified_at:
+            continue
+        if m.model_id.casefold() in live_ids:
+            continue
+        m.is_free = False
+        m.free_kind = "byok_required"
+        m.free_limit = note
+        m.free_evidence_source = None
+        m.free_evidence_timestamp = None
+        demoted.append(m.model_id)
+    return demoted
 
 
 def ingest_models_dev(snap: Snapshot) -> tuple[int, list[CheapFlagship], dict]:
