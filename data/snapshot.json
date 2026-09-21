@@ -1,5 +1,5 @@
 {
-  "snapshot_at": "2026-09-21T17:01:01Z",
+  "snapshot_at": "2026-09-21T21:02:16Z",
   "schema_version": 1,
   "providers": [
     {
@@ -46,7 +46,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T17:01:02Z"
+      "last_verified": "2026-09-21T21:02:17Z"
     },
     {
       "id": "p_groq",
@@ -239,7 +239,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T17:01:03Z"
+      "last_verified": "2026-09-21T21:02:18Z"
     },
     {
       "id": "p_sambanova",
@@ -262,7 +262,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T17:01:04Z"
+      "last_verified": "2026-09-21T21:02:18Z"
     },
     {
       "id": "p_nvidia",
@@ -288,7 +288,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T17:01:04Z"
+      "last_verified": "2026-09-21T21:02:18Z"
     },
     {
       "id": "p_cloudflare",
@@ -334,7 +334,7 @@
       "notes": "",
       "catch": "",
       "free_model_count": 0,
-      "pricing_status": "{\"free\": 0, \"paid_with_price\": 28, \"paid_no_price\": 0, \"total\": 28}",
+      "pricing_status": "{\"free\": 0, \"paid_with_price\": 29, \"paid_no_price\": 0, \"total\": 29}",
       "probe_status": "error",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
@@ -364,7 +364,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T17:01:04Z"
+      "last_verified": "2026-09-21T21:02:18Z"
     },
     {
       "id": "p_openrouter",
@@ -383,11 +383,11 @@
       "notes": "",
       "catch": "",
       "free_model_count": 26,
-      "pricing_status": "{\"free\": 26, \"paid_with_price\": 0, \"paid_no_price\": 439, \"total\": 465}",
+      "pricing_status": "{\"free\": 26, \"paid_with_price\": 0, \"paid_no_price\": 442, \"total\": 468}",
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T17:01:04Z"
+      "last_verified": "2026-09-21T21:02:18Z"
     },
     {
       "id": "p_qwen",
@@ -571,7 +571,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T17:01:18Z"
+      "last_verified": "2026-09-21T21:02:34Z"
     },
     {
       "id": "p_nscale",
@@ -709,7 +709,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:20Z",
-      "last_verified": "2026-09-21T17:01:30Z"
+      "last_verified": "2026-09-21T21:02:46Z"
     },
     {
       "id": "p_api_2",
@@ -732,7 +732,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:21Z",
-      "last_verified": "2026-09-21T17:01:30Z"
+      "last_verified": "2026-09-21T21:02:46Z"
     },
     {
       "id": "p_helixmind",
@@ -755,7 +755,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:23Z",
-      "last_verified": "2026-09-21T17:01:31Z"
+      "last_verified": "2026-09-21T21:02:46Z"
     },
     {
       "id": "p_api_3",
@@ -778,7 +778,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:31Z",
-      "last_verified": "2026-09-21T17:01:32Z"
+      "last_verified": "2026-09-21T21:02:47Z"
     },
     {
       "id": "p_api_4",
@@ -801,7 +801,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:33Z",
-      "last_verified": "2026-09-21T17:01:33Z"
+      "last_verified": "2026-09-21T21:02:47Z"
     },
     {
       "id": "p_hcap",
@@ -847,7 +847,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-08T11:46:56Z",
-      "last_verified": "2026-09-21T17:01:33Z"
+      "last_verified": "2026-09-21T21:02:48Z"
     },
     {
       "id": "p_experiential",
@@ -12822,7 +12822,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_~z-ai_glm-flash-latest",
@@ -13121,7 +13121,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_google_gemini-3_7-flash",
@@ -13351,7 +13351,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_nvidia_nemotron-3_5-lightning",
@@ -13397,7 +13397,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_sakana_sakana-namazu",
@@ -13673,7 +13673,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_qwen_qwen3_7-flash",
@@ -13811,7 +13811,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_google_gemini-3_6-flash",
@@ -13995,7 +13995,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_openrouter_auto-beta",
@@ -14547,7 +14547,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_anthropic_claude-sonnet-5",
@@ -14731,7 +14731,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_z-ai_glm-5_2",
@@ -14777,7 +14777,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_openrouter_fusion",
@@ -14938,7 +14938,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_nvidia_nemotron-3-ultra-550b-a55b",
@@ -14984,7 +14984,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_qwen_qwen3_7-plus",
@@ -15444,7 +15444,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_~anthropic_claude-haiku-latest",
@@ -16134,7 +16134,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_google_gemma-4-31b-it",
@@ -16203,7 +16203,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_qwen_qwen3_6-plus",
@@ -16341,7 +16341,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_google_lyria-3-clip-preview",
@@ -16364,7 +16364,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_kwaipilot_kat-coder-pro-v2",
@@ -16640,7 +16640,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_bytedance-seed_seed-2_0-lite",
@@ -17353,7 +17353,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_stepfun_step-3_5-flash",
@@ -26171,7 +26171,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_qwen_qwen3_8-max-0902",
@@ -50734,9 +50734,9 @@
       "free_limit": "Groq Free Plan Limits (RPM: 20, RPD: 2K, TPM: -, TPD: -, ASH: 7.2K, ASD: 28.8K)",
       "free_verified_at": null,
       "free_evidence_source": "docs",
-      "free_evidence_timestamp": "2026-09-21T17:01:41Z",
+      "free_evidence_timestamp": "2026-09-21T21:02:55Z",
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -50757,9 +50757,9 @@
       "free_limit": "Groq Free Plan Limits (RPM: 20, RPD: 2K, TPM: -, TPD: -, ASH: 7.2K, ASD: 28.8K)",
       "free_verified_at": null,
       "free_evidence_source": "docs",
-      "free_evidence_timestamp": "2026-09-21T17:01:41Z",
+      "free_evidence_timestamp": "2026-09-21T21:02:55Z",
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -50851,7 +50851,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": 0.8,
       "output_per_1m": 4.0,
       "cache_read_per_1m": null,
@@ -50943,7 +50943,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": 0.04,
       "output_per_1m": 0.04,
       "cache_read_per_1m": null,
@@ -50966,7 +50966,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": 0.03,
       "output_per_1m": 0.03,
       "cache_read_per_1m": null,
@@ -50989,7 +50989,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": 0.075,
       "output_per_1m": 0.3,
       "cache_read_per_1m": null,
@@ -51012,7 +51012,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": 0.075,
       "output_per_1m": 0.3,
       "cache_read_per_1m": null,
@@ -51035,7 +51035,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": 0.15,
       "output_per_1m": 0.6,
       "cache_read_per_1m": null,
@@ -51056,9 +51056,9 @@
       "free_limit": "Groq Free Plan Limits (RPM: 10, RPD: 100, TPM: 1.2K, TPD: 3.6K, ASH: -, ASD: -)",
       "free_verified_at": null,
       "free_evidence_source": "docs",
-      "free_evidence_timestamp": "2026-09-21T17:01:41Z",
+      "free_evidence_timestamp": "2026-09-21T21:02:55Z",
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -51079,9 +51079,9 @@
       "free_limit": "Groq Free Plan Limits (RPM: 10, RPD: 100, TPM: 1.2K, TPD: 3.6K, ASH: -, ASD: -)",
       "free_verified_at": null,
       "free_evidence_source": "docs",
-      "free_evidence_timestamp": "2026-09-21T17:01:41Z",
+      "free_evidence_timestamp": "2026-09-21T21:02:55Z",
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T17:01:41Z",
+      "catalog_checked_at": "2026-09-21T21:02:55Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -68726,7 +68726,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_nex-agi_nex-n2_5-pro_free",
@@ -68749,7 +68749,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_experiential_aion-2_0",
@@ -77076,7 +77076,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_openrouter_deepseek_deepseek-v4_1-flash",
@@ -78577,7 +78577,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T17:01:38Z"
+      "last_verified": "2026-09-21T21:02:53Z"
     },
     {
       "id": "m_novita_tencent_hy4-preview",
@@ -82797,6 +82797,98 @@
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
       "last_verified": "2026-09-21T17:01:40Z"
+    },
+    {
+      "id": "m_openrouter_xiaomi_mimo-v2_6-pro-ultraspeed",
+      "provider_id": "p_openrouter",
+      "model_id": "xiaomi/mimo-v2.6-pro-ultraspeed",
+      "display_name": "Xiaomi: MiMo-V2.6-Pro-UltraSpeed",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048576,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "catalog_source_url": null,
+      "catalog_checked_at": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-21T21:02:18Z"
+    },
+    {
+      "id": "m_openrouter_xiaomi_mimo-v2_6-flash",
+      "provider_id": "p_openrouter",
+      "model_id": "xiaomi/mimo-v2.6-flash",
+      "display_name": "Xiaomi: MiMo-V2.6-Flash",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048576,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "catalog_source_url": null,
+      "catalog_checked_at": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-21T21:02:18Z"
+    },
+    {
+      "id": "m_openrouter_xiaomi_mimo-v2_6-pro",
+      "provider_id": "p_openrouter",
+      "model_id": "xiaomi/mimo-v2.6-pro",
+      "display_name": "Xiaomi: MiMo-V2.6-Pro",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 1048576,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "catalog_source_url": null,
+      "catalog_checked_at": null,
+      "input_per_1m": null,
+      "output_per_1m": null,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-21T21:02:18Z"
+    },
+    {
+      "id": "m_github_grok-4_7",
+      "provider_id": "p_github",
+      "model_id": "grok-4.7",
+      "display_name": "Grok 4.7",
+      "modality": [
+        "chat"
+      ],
+      "context_window": 500000,
+      "is_free": false,
+      "free_kind": "byok_required",
+      "free_limit": "",
+      "free_verified_at": null,
+      "free_evidence_source": null,
+      "free_evidence_timestamp": null,
+      "catalog_source_url": null,
+      "catalog_checked_at": null,
+      "input_per_1m": 2.0,
+      "output_per_1m": 6.0,
+      "cache_read_per_1m": null,
+      "cache_write_per_1m": null,
+      "last_verified": "2026-09-21T21:02:55Z"
     }
   ],
   "cheap_flagships": [
@@ -94216,6 +94308,226 @@
       "at": "2026-09-21T17:02:29Z",
       "kind": "verified",
       "text": "agent run finished in 88.0s"
+    },
+    {
+      "at": "2026-09-21T21:02:16Z",
+      "kind": "verified",
+      "text": "agent run started"
+    },
+    {
+      "at": "2026-09-21T21:02:17Z",
+      "kind": "verified",
+      "text": "zai: model list gated behind login/API key \u2014 set ZAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:17Z",
+      "kind": "verified",
+      "text": "groq: model list gated behind login/API key \u2014 set GROQ_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:17Z",
+      "kind": "verified",
+      "text": "google-ai-studio: model list gated behind login/API key \u2014 set GOOGLE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:17Z",
+      "kind": "verified",
+      "text": "cerebras: model list gated behind login/API key \u2014 set CEREBRAS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:17Z",
+      "kind": "verified",
+      "text": "mistral: model list gated behind login/API key \u2014 set MISTRAL_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:17Z",
+      "kind": "verified",
+      "text": "cohere: model list gated behind login/API key \u2014 set COHERE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:17Z",
+      "kind": "verified",
+      "text": "together: model list gated behind login/API key \u2014 set TOGETHER_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:17Z",
+      "kind": "verified",
+      "text": "fireworks: model list gated behind login/API key \u2014 set FIREWORKS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:18Z",
+      "kind": "verified",
+      "text": "github-models: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T21:02:19Z",
+      "kind": "verified",
+      "text": "qwen-bailian: model list gated behind login/API key \u2014 set DASHSCOPE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:21Z",
+      "kind": "verified",
+      "text": "moonshot: model list gated behind login/API key \u2014 set MOONSHOT_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:22Z",
+      "kind": "verified",
+      "text": "deepseek: model list gated behind login/API key \u2014 set DEEPSEEK_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:23Z",
+      "kind": "verified",
+      "text": "siliconflow: model list gated behind login/API key \u2014 set SILICONFLOW_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:23Z",
+      "kind": "verified",
+      "text": "zuki: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T21:02:23Z",
+      "kind": "verified",
+      "text": "nagaai: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T21:02:33Z",
+      "kind": "verified",
+      "text": "anannas: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T21:02:34Z",
+      "kind": "verified",
+      "text": "nscale: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T21:02:34Z",
+      "kind": "verified",
+      "text": "publicai: model list gated behind login/API key \u2014 set PUBLICAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:44Z",
+      "kind": "verified",
+      "text": "glhf: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T21:02:45Z",
+      "kind": "verified",
+      "text": "bai: model list gated behind login/API key \u2014 set BAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:45Z",
+      "kind": "verified",
+      "text": "targon: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T21:02:47Z",
+      "kind": "verified",
+      "text": "hcap: model list gated behind login/API key \u2014 set a provider API key to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:49Z",
+      "kind": "verified",
+      "text": "experiential-labs: model list gated behind login/API key \u2014 set EXPERIENTIAL_LABS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:49Z",
+      "kind": "verified",
+      "text": "inference: model list gated behind login/API key \u2014 set POOLSIDE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:49Z",
+      "kind": "verified",
+      "text": "tokenrouter: model list gated behind login/API key \u2014 set TOKENROUTER_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:50Z",
+      "kind": "verified",
+      "text": "tabitoken: model list gated behind login/API key \u2014 set TABITOKEN_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:51Z",
+      "kind": "verified",
+      "text": "hcnsec: model list gated behind login/API key \u2014 set HCNSEC_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T21:02:53Z",
+      "kind": "verified",
+      "text": "agentrouter: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T21:02:53Z",
+      "kind": "verified",
+      "text": "per-provider /v1/models: merged 3 new models"
+    },
+    {
+      "at": "2026-09-21T21:02:53Z",
+      "kind": "verified",
+      "text": "openrouter :free: added 0 models"
+    },
+    {
+      "at": "2026-09-21T21:02:53Z",
+      "kind": "verified",
+      "text": "huggingface free: added 0 models"
+    },
+    {
+      "at": "2026-09-21T21:02:54Z",
+      "kind": "verified",
+      "text": "b.ai: added 0 models"
+    },
+    {
+      "at": "2026-09-21T21:02:54Z",
+      "kind": "verified",
+      "text": "xkiro: 37 free (source-declared), 74 paid/premium listed"
+    },
+    {
+      "at": "2026-09-21T21:02:55Z",
+      "kind": "pricing",
+      "text": "models.dev: backfilled 1244 models, promoted 0 to free, repaired 0 false free flags, leaderboard has 25 entries"
+    },
+    {
+      "at": "2026-09-21T21:02:55Z",
+      "kind": "verified",
+      "text": "openrouter-providers candidates for review: AtlasCloud (openrouter upstream, 1 free models); Nex AGI (openrouter upstream, 2 free models); Thinking Machines (openrouter upstream, 2 free models) \u2014 endpoint https://tinker.thinkingmachines.dev/services/tinker-prod/anthropic/api/v1 answered 'error'; Decart (openrouter upstream, 1 free models); ModelRun (openrouter upstream, 1 free models); Liquid (openrouter upstream, 2 free models)\u2026"
+    },
+    {
+      "at": "2026-09-21T21:02:55Z",
+      "kind": "added",
+      "text": "models.dev seeding: added 1 catalog rows for gated/unreachable providers"
+    },
+    {
+      "at": "2026-09-21T21:02:56Z",
+      "kind": "verified",
+      "text": "public catalog tokenrouter: refresh failed (ValueError)"
+    },
+    {
+      "at": "2026-09-21T21:02:56Z",
+      "kind": "verified",
+      "text": "public catalog tabitoken: refresh failed (HTTPStatusError)"
+    },
+    {
+      "at": "2026-09-21T21:03:41Z",
+      "kind": "added",
+      "text": "community-list promotion: 0 new providers"
+    },
+    {
+      "at": "2026-09-21T21:03:41Z",
+      "kind": "verifier",
+      "text": "orchestrator disabled: no LLM key configured (add a provider in Settings \u2192 Intelligence, or set OPENAI_API_KEY / ANTHROPIC_API_KEY)"
+    },
+    {
+      "at": "2026-09-21T21:03:41Z",
+      "kind": "verifier",
+      "text": "verifier disabled: no LLM key configured (add a provider in Settings \u2192 Intelligence, or set OPENAI_API_KEY / ANTHROPIC_API_KEY on the server)"
+    },
+    {
+      "at": "2026-09-21T21:03:41Z",
+      "kind": "verifier",
+      "text": "verifier: 0 verdicts (0 expired, 0 rebranded)"
+    },
+    {
+      "at": "2026-09-21T21:03:41Z",
+      "kind": "verified",
+      "text": "agent run finished in 84.7s"
     }
   ],
   "credit_providers": [
