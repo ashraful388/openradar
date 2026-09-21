@@ -11,7 +11,7 @@ const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-display", disp
 export const metadata: Metadata = {
   title: "OpenRadar — free AI model APIs and the cheapest flagships",
   description:
-    "Every provider that offers a free AI model API, and the frontier models that are unusually cheap. Updated every 10 hours.",
+    "Every provider that offers a free AI model API, and the frontier models that are unusually cheap. Updated hourly.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -59,7 +59,11 @@ export default async function HomePage() {
         </div>
         <div className="row-body">
           <ul className="changelog">
-            {snap.changelog.slice(0, 8).map((c, i) => (
+            {/* The changelog array is append-only with a front-trim, so the
+                NEWEST entries are at the END — slice the tail and reverse
+                for a newest-first list (slice(0, 8) showed the oldest
+                retained entries, making fresh runs look stale). */}
+            {snap.changelog.slice(-8).reverse().map((c, i) => (
               <li key={i} className={`changelog-row changelog-${c.kind}`}>
                 <span className="changelog-time">{formatTime(c.at)}</span>
                 <span className="changelog-text">{c.text}</span>

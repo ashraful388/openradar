@@ -9,11 +9,13 @@ export default async function ChangesPage() {
       <p className="kicker">Activity log</p>
       <h1 className="display">What changed</h1>
       <p className="lede">
-        The discovery agent runs every 10 hours. Every new free offer, expired tier, and pricing
+        The discovery agent runs hourly. Every new free offer, expired tier, and pricing
         change is logged here. If a row is older than 7 days, the system has gone quiet.
       </p>
       <ol className="changelog changelog-list">
-        {snap.changelog.map((c, i) => (
+        {/* Append-only array with a front-trim: newest entries live at the
+            END. Reverse for a newest-first activity log. */}
+        {[...snap.changelog].reverse().map((c, i) => (
           <li key={i} className={`changelog-row changelog-${c.kind}`}>
             <time className="changelog-time mono">{new Date(c.at).toISOString().replace("T", " ").slice(0, 16)} UTC</time>
             <span className="changelog-kind">{c.kind}</span>

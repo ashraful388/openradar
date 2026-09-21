@@ -7,7 +7,7 @@ export function SiteFooter() {
           constantly. Verify against each provider&rsquo;s own docs before you ship.
         </p>
         <p className="dim">
-          Discovery agent runs every 10 hours. Source on{" "}
+          Discovery agent runs hourly. Source on{" "}
           <a href="https://github.com" rel="noreferrer">GitHub</a>.
         </p>
       </div>
