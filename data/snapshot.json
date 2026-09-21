@@ -1,5 +1,5 @@
 {
-  "snapshot_at": "2026-09-21T06:43:52Z",
+  "snapshot_at": "2026-09-21T07:06:26Z",
   "schema_version": 1,
   "providers": [
     {
@@ -46,7 +46,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T06:43:55Z"
+      "last_verified": "2026-09-21T07:06:26Z"
     },
     {
       "id": "p_groq",
@@ -66,7 +66,7 @@
       "catch": "",
       "free_model_count": 6,
       "pricing_status": "{\"free\": 6, \"paid_with_price\": 10, \"paid_no_price\": 0, \"total\": 16}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-21T06:43:56Z"
@@ -117,7 +117,7 @@
       "catch": "",
       "free_model_count": 0,
       "pricing_status": "{\"free\": 0, \"paid_with_price\": 2, \"paid_no_price\": 1, \"total\": 3}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-21T06:43:58Z"
@@ -142,7 +142,7 @@
       "catch": "",
       "free_model_count": 8,
       "pricing_status": "{\"free\": 8, \"paid_with_price\": 33, \"paid_no_price\": 28, \"total\": 69}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-21T06:43:59Z"
@@ -190,7 +190,7 @@
       "catch": "",
       "free_model_count": 1,
       "pricing_status": "{\"free\": 1, \"paid_with_price\": 39, \"paid_no_price\": 250, \"total\": 290}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-21T06:44:02Z"
@@ -239,7 +239,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T06:44:05Z"
+      "last_verified": "2026-09-21T07:06:28Z"
     },
     {
       "id": "p_sambanova",
@@ -262,7 +262,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T06:44:06Z"
+      "last_verified": "2026-09-21T07:06:28Z"
     },
     {
       "id": "p_nvidia",
@@ -288,7 +288,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T06:44:07Z"
+      "last_verified": "2026-09-21T07:06:28Z"
     },
     {
       "id": "p_cloudflare",
@@ -364,7 +364,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T06:44:09Z"
+      "last_verified": "2026-09-21T07:06:29Z"
     },
     {
       "id": "p_openrouter",
@@ -387,7 +387,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T06:44:10Z"
+      "last_verified": "2026-09-21T07:06:29Z"
     },
     {
       "id": "p_qwen",
@@ -571,7 +571,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
-      "last_verified": "2026-09-21T06:44:33Z"
+      "last_verified": "2026-09-21T07:06:44Z"
     },
     {
       "id": "p_nscale",
@@ -614,7 +614,7 @@
       "catch": "",
       "free_model_count": 7,
       "pricing_status": "{\"free\": 7, \"paid_with_price\": 0, \"paid_no_price\": 2, \"total\": 9}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-21T06:44:36Z"
@@ -658,9 +658,9 @@
       "tagline": "Multi-model API with a free tier. Resolves to whatever model you ask for.",
       "notes": "Surfaced via https://chat.b.ai/key. /v1/models is gated (401 without a key) but the chat surface advertises a free tier.",
       "catch": "",
-      "free_model_count": 0,
-      "pricing_status": "{\"free\": 0, \"paid_with_price\": 12, \"paid_no_price\": 47, \"total\": 59}",
-      "probe_status": "ok",
+      "free_model_count": 3,
+      "pricing_status": "{\"free\": 3, \"paid_with_price\": 49, \"paid_no_price\": 7, \"total\": 59}",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:11:06Z",
       "last_verified": "2026-09-21T06:44:48Z"
@@ -709,7 +709,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:20Z",
-      "last_verified": "2026-09-21T06:44:55Z"
+      "last_verified": "2026-09-21T07:06:56Z"
     },
     {
       "id": "p_api_2",
@@ -732,7 +732,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:21Z",
-      "last_verified": "2026-09-21T06:44:56Z"
+      "last_verified": "2026-09-21T07:06:56Z"
     },
     {
       "id": "p_helixmind",
@@ -755,7 +755,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:23Z",
-      "last_verified": "2026-09-21T06:44:58Z"
+      "last_verified": "2026-09-21T07:06:57Z"
     },
     {
       "id": "p_api_3",
@@ -778,7 +778,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:31Z",
-      "last_verified": "2026-09-21T06:45:00Z"
+      "last_verified": "2026-09-21T07:06:57Z"
     },
     {
       "id": "p_api_4",
@@ -801,7 +801,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-03T05:12:33Z",
-      "last_verified": "2026-09-21T06:45:02Z"
+      "last_verified": "2026-09-21T07:06:58Z"
     },
     {
       "id": "p_hcap",
@@ -821,7 +821,7 @@
       "catch": "Auto-added; review before building on it.",
       "free_model_count": 0,
       "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 28, \"total\": 28}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-03T05:12:36Z",
       "last_verified": "2026-09-21T06:45:03Z"
@@ -847,7 +847,7 @@
       "probe_status": "ok",
       "status": "active",
       "first_seen": "2026-09-08T11:46:56Z",
-      "last_verified": "2026-09-21T06:45:05Z"
+      "last_verified": "2026-09-21T07:06:59Z"
     },
     {
       "id": "p_experiential",
@@ -867,7 +867,7 @@
       "catch": "",
       "free_model_count": 0,
       "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 338, \"total\": 338}",
-      "probe_status": "ok",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-08T11:46:56Z",
       "last_verified": "2026-09-21T06:45:07Z"
@@ -959,7 +959,7 @@
       "catch": "",
       "free_model_count": 0,
       "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 0, \"total\": 0}",
-      "probe_status": "error",
+      "probe_status": "needs_key",
       "status": "active",
       "first_seen": "2026-09-16T03:51:16Z",
       "last_verified": "2026-09-16T03:51:16Z"
@@ -982,7 +982,7 @@
       "catch": "",
       "free_model_count": 0,
       "pricing_status": "{\"free\": 0, \"paid_with_price\": 0, \"paid_no_price\": 5, \"total\": 5}",
-      "probe_status": "needs_key",
+      "probe_status": "error",
       "status": "active",
       "first_seen": "2026-09-16T05:06:28Z",
       "last_verified": "2026-09-16T05:06:28Z"
@@ -1137,18 +1137,18 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": false,
-      "free_kind": "byok_required",
-      "free_limit": "via b.ai[probe: missing]",
+      "is_free": true,
+      "free_kind": "free_tier",
+      "free_limit": "b.ai $0/M verified",
       "free_verified_at": null,
-      "free_evidence_source": null,
-      "free_evidence_timestamp": null,
+      "free_evidence_source": "bai",
+      "free_evidence_timestamp": "2026-09-21T07:07:06Z",
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.0,
+      "output_per_1m": 0.0,
+      "cache_read_per_1m": 0.0,
+      "cache_write_per_1m": 0.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1168,10 +1168,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.834,
+      "output_per_1m": 2.501,
+      "cache_read_per_1m": 0.0417,
+      "cache_write_per_1m": 0.834,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1183,18 +1183,18 @@
         "chat"
       ],
       "context_window": null,
-      "is_free": false,
-      "free_kind": "byok_required",
-      "free_limit": "via b.ai[probe: missing]",
+      "is_free": true,
+      "free_kind": "free_tier",
+      "free_limit": "b.ai $0/M verified",
       "free_verified_at": null,
-      "free_evidence_source": null,
-      "free_evidence_timestamp": null,
+      "free_evidence_source": "bai",
+      "free_evidence_timestamp": "2026-09-21T07:07:06Z",
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.0,
+      "output_per_1m": 0.0,
+      "cache_read_per_1m": 0.0,
+      "cache_write_per_1m": 0.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1214,10 +1214,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.435,
+      "output_per_1m": 0.87,
+      "cache_read_per_1m": 0.0036,
+      "cache_write_per_1m": 0.435,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1261,10 +1261,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 1.4,
+      "output_per_1m": 4.4,
+      "cache_read_per_1m": 0.28,
+      "cache_write_per_1m": 1.4,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1285,10 +1285,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 1.4,
+      "output_per_1m": 4.4,
+      "cache_read_per_1m": 0.28,
+      "cache_write_per_1m": 1.4,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1309,10 +1309,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 1.4,
+      "output_per_1m": 4.4,
+      "cache_read_per_1m": 0.28,
+      "cache_write_per_1m": 1.4,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1324,18 +1324,18 @@
         "chat"
       ],
       "context_window": 1000000,
-      "is_free": false,
-      "free_kind": "byok_required",
-      "free_limit": "via b.ai[probe: missing]",
+      "is_free": true,
+      "free_kind": "free_tier",
+      "free_limit": "b.ai $0/M verified",
       "free_verified_at": null,
-      "free_evidence_source": null,
-      "free_evidence_timestamp": null,
+      "free_evidence_source": "bai",
+      "free_evidence_timestamp": "2026-09-21T07:07:06Z",
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.0,
+      "output_per_1m": 0.0,
+      "cache_read_per_1m": 0.0,
+      "cache_write_per_1m": 0.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1356,10 +1356,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 2.0,
+      "output_per_1m": 6.0,
+      "cache_read_per_1m": 0.25,
+      "cache_write_per_1m": 2.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1379,10 +1379,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.22,
+      "output_per_1m": 1.6,
+      "cache_read_per_1m": 0.022,
+      "cache_write_per_1m": 0.22,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1403,10 +1403,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "cache_read_per_1m": 0.5,
+      "cache_write_per_1m": 6.25,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1427,10 +1427,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 10.0,
+      "output_per_1m": 50.0,
+      "cache_read_per_1m": 1.0,
+      "cache_write_per_1m": 12.5,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1451,10 +1451,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "cache_read_per_1m": 0.5,
+      "cache_write_per_1m": 6.25,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1475,10 +1475,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "cache_read_per_1m": 0.5,
+      "cache_write_per_1m": 6.25,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1499,10 +1499,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "cache_read_per_1m": 0.5,
+      "cache_write_per_1m": 6.25,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1523,10 +1523,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 5.0,
+      "output_per_1m": 25.0,
+      "cache_read_per_1m": 0.5,
+      "cache_write_per_1m": 6.25,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1547,10 +1547,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 2.0,
+      "output_per_1m": 10.0,
+      "cache_read_per_1m": 0.2,
+      "cache_write_per_1m": 2.5,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1571,10 +1571,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 3.0,
+      "output_per_1m": 15.0,
+      "cache_read_per_1m": 0.3,
+      "cache_write_per_1m": 3.75,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1595,10 +1595,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 3.0,
+      "output_per_1m": 15.0,
+      "cache_read_per_1m": 0.3,
+      "cache_write_per_1m": 3.75,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1619,10 +1619,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 1.0,
+      "output_per_1m": 5.0,
+      "cache_read_per_1m": 0.1,
+      "cache_write_per_1m": 1.25,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1643,10 +1643,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 4.0,
+      "output_per_1m": 20.0,
+      "cache_read_per_1m": 0.4,
+      "cache_write_per_1m": 5.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1667,10 +1667,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 2.0,
+      "output_per_1m": 12.0,
+      "cache_read_per_1m": 0.2,
+      "cache_write_per_1m": 2.5,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1691,10 +1691,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.2,
+      "output_per_1m": 1.2,
+      "cache_read_per_1m": 0.02,
+      "cache_write_per_1m": 0.25,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1715,10 +1715,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 5.0,
+      "output_per_1m": 30.0,
+      "cache_read_per_1m": 0.5,
+      "cache_write_per_1m": 5.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1739,10 +1739,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 5.0,
+      "output_per_1m": 30.0,
+      "cache_read_per_1m": 0.5,
+      "cache_write_per_1m": 5.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1763,10 +1763,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 2.5,
+      "output_per_1m": 15.0,
+      "cache_read_per_1m": 0.25,
+      "cache_write_per_1m": 2.5,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1787,10 +1787,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 1.75,
+      "output_per_1m": 14.0,
+      "cache_read_per_1m": 0.175,
+      "cache_write_per_1m": 1.75,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1811,10 +1811,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 30.0,
+      "output_per_1m": 180.0,
+      "cache_read_per_1m": 3.0,
+      "cache_write_per_1m": 30.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1835,10 +1835,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.75,
+      "output_per_1m": 4.5,
+      "cache_read_per_1m": 0.075,
+      "cache_write_per_1m": 0.75,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1859,10 +1859,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.25,
+      "output_per_1m": 2.0,
+      "cache_read_per_1m": 0.025,
+      "cache_write_per_1m": 0.25,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1883,10 +1883,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.2,
+      "output_per_1m": 1.25,
+      "cache_read_per_1m": 0.02,
+      "cache_write_per_1m": 0.2,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1907,10 +1907,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.05,
+      "output_per_1m": 0.4,
+      "cache_read_per_1m": 0.005,
+      "cache_write_per_1m": 0.05,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1931,10 +1931,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 2.0,
+      "output_per_1m": 12.0,
+      "cache_read_per_1m": 0.2,
+      "cache_write_per_1m": 2.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -1979,10 +1979,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.5,
+      "output_per_1m": 3.0,
+      "cache_read_per_1m": 0.05,
+      "cache_write_per_1m": 0.5,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -2003,10 +2003,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.3,
+      "output_per_1m": 2.5,
+      "cache_read_per_1m": 0.03,
+      "cache_write_per_1m": 0.3,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -2027,10 +2027,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 1.5,
+      "output_per_1m": 7.5,
+      "cache_read_per_1m": 0.15,
+      "cache_write_per_1m": 1.5,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -2050,10 +2050,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.3,
+      "output_per_1m": 1.2,
+      "cache_read_per_1m": 0.06,
+      "cache_write_per_1m": 0.3,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -2073,10 +2073,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.3,
+      "output_per_1m": 1.2,
+      "cache_read_per_1m": 0.06,
+      "cache_write_per_1m": 0.375,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -2096,10 +2096,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 0.95,
+      "output_per_1m": 4.0,
+      "cache_read_per_1m": 0.1615,
+      "cache_write_per_1m": 0.95,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -2119,10 +2119,10 @@
       "free_evidence_timestamp": null,
       "catalog_source_url": null,
       "catalog_checked_at": null,
-      "input_per_1m": null,
-      "output_per_1m": null,
-      "cache_read_per_1m": null,
-      "cache_write_per_1m": null,
+      "input_per_1m": 3.0,
+      "output_per_1m": 15.0,
+      "cache_read_per_1m": 0.3,
+      "cache_write_per_1m": 3.0,
       "last_verified": "2026-09-06T03:32:03Z"
     },
     {
@@ -12822,7 +12822,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_~z-ai_glm-flash-latest",
@@ -13121,7 +13121,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_google_gemini-3_7-flash",
@@ -13351,7 +13351,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_nvidia_nemotron-3_5-lightning",
@@ -13397,7 +13397,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_sakana_sakana-namazu",
@@ -13673,7 +13673,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_qwen_qwen3_7-flash",
@@ -13811,7 +13811,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_google_gemini-3_6-flash",
@@ -13995,7 +13995,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_openrouter_auto-beta",
@@ -14547,7 +14547,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_anthropic_claude-sonnet-5",
@@ -14731,7 +14731,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_z-ai_glm-5_2",
@@ -14777,7 +14777,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_openrouter_fusion",
@@ -14938,7 +14938,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_nvidia_nemotron-3-ultra-550b-a55b",
@@ -14984,7 +14984,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_qwen_qwen3_7-plus",
@@ -15444,7 +15444,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_~anthropic_claude-haiku-latest",
@@ -16134,7 +16134,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_google_gemma-4-31b-it",
@@ -16203,7 +16203,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_qwen_qwen3_6-plus",
@@ -16341,7 +16341,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_google_lyria-3-clip-preview",
@@ -16364,7 +16364,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_kwaipilot_kat-coder-pro-v2",
@@ -16640,7 +16640,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_bytedance-seed_seed-2_0-lite",
@@ -17353,7 +17353,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_stepfun_step-3_5-flash",
@@ -26171,7 +26171,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_qwen_qwen3_8-max-0902",
@@ -50734,9 +50734,9 @@
       "free_limit": "Groq Free Plan Limits (RPM: 20, RPD: 2K, TPM: -, TPD: -, ASH: 7.2K, ASD: 28.8K)",
       "free_verified_at": null,
       "free_evidence_source": "docs",
-      "free_evidence_timestamp": "2026-09-21T06:17:18Z",
+      "free_evidence_timestamp": "2026-09-21T07:07:08Z",
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -50757,9 +50757,9 @@
       "free_limit": "Groq Free Plan Limits (RPM: 20, RPD: 2K, TPM: -, TPD: -, ASH: 7.2K, ASD: 28.8K)",
       "free_verified_at": null,
       "free_evidence_source": "docs",
-      "free_evidence_timestamp": "2026-09-21T06:17:18Z",
+      "free_evidence_timestamp": "2026-09-21T07:07:08Z",
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -50851,7 +50851,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": 0.8,
       "output_per_1m": 4.0,
       "cache_read_per_1m": null,
@@ -50943,7 +50943,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": 0.04,
       "output_per_1m": 0.04,
       "cache_read_per_1m": null,
@@ -50966,7 +50966,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": 0.03,
       "output_per_1m": 0.03,
       "cache_read_per_1m": null,
@@ -50989,7 +50989,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": 0.075,
       "output_per_1m": 0.3,
       "cache_read_per_1m": null,
@@ -51012,7 +51012,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": 0.075,
       "output_per_1m": 0.3,
       "cache_read_per_1m": null,
@@ -51035,7 +51035,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": 0.15,
       "output_per_1m": 0.6,
       "cache_read_per_1m": null,
@@ -51056,9 +51056,9 @@
       "free_limit": "Groq Free Plan Limits (RPM: 10, RPD: 100, TPM: 1.2K, TPD: 3.6K, ASH: -, ASD: -)",
       "free_verified_at": null,
       "free_evidence_source": "docs",
-      "free_evidence_timestamp": "2026-09-21T06:17:18Z",
+      "free_evidence_timestamp": "2026-09-21T07:07:08Z",
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -51079,9 +51079,9 @@
       "free_limit": "Groq Free Plan Limits (RPM: 10, RPD: 100, TPM: 1.2K, TPD: 3.6K, ASH: -, ASD: -)",
       "free_verified_at": null,
       "free_evidence_source": "docs",
-      "free_evidence_timestamp": "2026-09-21T06:17:18Z",
+      "free_evidence_timestamp": "2026-09-21T07:07:08Z",
       "catalog_source_url": "https://console.groq.com/docs/rate-limits",
-      "catalog_checked_at": "2026-09-21T06:17:18Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -68726,7 +68726,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_nex-agi_nex-n2_5-pro_free",
@@ -68749,7 +68749,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_experiential_aion-2_0",
@@ -77076,7 +77076,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_openrouter_deepseek_deepseek-v4_1-flash",
@@ -78577,7 +78577,7 @@
       "output_per_1m": null,
       "cache_read_per_1m": null,
       "cache_write_per_1m": null,
-      "last_verified": "2026-09-21T06:45:19Z"
+      "last_verified": "2026-09-21T07:07:04Z"
     },
     {
       "id": "m_novita_tencent_hy4-preview",
@@ -78950,7 +78950,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -78973,7 +78973,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -78996,7 +78996,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79019,7 +79019,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79042,7 +79042,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79065,7 +79065,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79088,7 +79088,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79111,7 +79111,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79134,7 +79134,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79157,7 +79157,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79180,7 +79180,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79203,7 +79203,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79226,7 +79226,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79249,7 +79249,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79272,7 +79272,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79295,7 +79295,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79318,7 +79318,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79341,7 +79341,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79364,7 +79364,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79387,7 +79387,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79410,7 +79410,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79433,7 +79433,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79456,7 +79456,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79479,7 +79479,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79502,7 +79502,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79525,7 +79525,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79548,7 +79548,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79571,7 +79571,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79594,7 +79594,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79617,7 +79617,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79640,7 +79640,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79663,7 +79663,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79686,7 +79686,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79709,7 +79709,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79732,7 +79732,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79755,7 +79755,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79778,7 +79778,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79801,7 +79801,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79824,7 +79824,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79847,7 +79847,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79870,7 +79870,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79893,7 +79893,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79916,7 +79916,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79939,7 +79939,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79962,7 +79962,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -79985,7 +79985,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80008,7 +80008,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80031,7 +80031,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80054,7 +80054,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80077,7 +80077,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80100,7 +80100,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80123,7 +80123,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80146,7 +80146,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80169,7 +80169,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80192,7 +80192,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80215,7 +80215,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80238,7 +80238,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80261,7 +80261,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80284,7 +80284,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80307,7 +80307,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80330,7 +80330,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80353,7 +80353,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80376,7 +80376,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80399,7 +80399,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80422,7 +80422,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80445,7 +80445,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80468,7 +80468,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80491,7 +80491,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80514,7 +80514,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80537,7 +80537,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80560,7 +80560,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80583,7 +80583,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80606,7 +80606,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80629,7 +80629,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80652,7 +80652,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80675,7 +80675,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80698,7 +80698,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80721,7 +80721,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80744,7 +80744,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80767,7 +80767,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80790,7 +80790,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80813,7 +80813,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80836,7 +80836,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80859,7 +80859,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80882,7 +80882,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80905,7 +80905,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80928,7 +80928,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80951,7 +80951,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80974,7 +80974,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -80997,7 +80997,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81020,7 +81020,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81043,7 +81043,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81066,7 +81066,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81089,7 +81089,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81112,7 +81112,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81135,7 +81135,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81158,7 +81158,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81181,7 +81181,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81204,7 +81204,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81227,7 +81227,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81250,7 +81250,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81273,7 +81273,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81296,7 +81296,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81319,7 +81319,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81342,7 +81342,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81365,7 +81365,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81388,7 +81388,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81411,7 +81411,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81434,7 +81434,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81457,7 +81457,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81480,7 +81480,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81503,7 +81503,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81526,7 +81526,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81549,7 +81549,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81572,7 +81572,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81595,7 +81595,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81618,7 +81618,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81641,7 +81641,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81664,7 +81664,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81687,7 +81687,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81710,7 +81710,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81733,7 +81733,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81756,7 +81756,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81779,7 +81779,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81802,7 +81802,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81825,7 +81825,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81848,7 +81848,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81871,7 +81871,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81894,7 +81894,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81917,7 +81917,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81940,7 +81940,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81963,7 +81963,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -81986,7 +81986,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -82009,7 +82009,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -82032,7 +82032,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -82055,7 +82055,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -82078,7 +82078,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -82101,7 +82101,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -82124,7 +82124,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -82147,7 +82147,7 @@
       "free_evidence_source": null,
       "free_evidence_timestamp": null,
       "catalog_source_url": "https://www.tokenrouter.com/models",
-      "catalog_checked_at": "2026-09-21T06:45:28Z",
+      "catalog_checked_at": "2026-09-21T07:07:08Z",
       "input_per_1m": null,
       "output_per_1m": null,
       "cache_read_per_1m": null,
@@ -93208,6 +93208,216 @@
       "at": "2026-09-21T07:05:12Z",
       "kind": "verified",
       "text": "agent run finished in 1279.7s"
+    },
+    {
+      "at": "2026-09-21T07:06:26Z",
+      "kind": "verified",
+      "text": "agent run started"
+    },
+    {
+      "at": "2026-09-21T07:06:26Z",
+      "kind": "verified",
+      "text": "zai: model list gated behind login/API key \u2014 set ZAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:26Z",
+      "kind": "verified",
+      "text": "groq: model list gated behind login/API key \u2014 set GROQ_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:27Z",
+      "kind": "verified",
+      "text": "google-ai-studio: model list gated behind login/API key \u2014 set GOOGLE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:27Z",
+      "kind": "verified",
+      "text": "cerebras: model list gated behind login/API key \u2014 set CEREBRAS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:27Z",
+      "kind": "verified",
+      "text": "mistral: model list gated behind login/API key \u2014 set MISTRAL_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:27Z",
+      "kind": "verified",
+      "text": "cohere: model list gated behind login/API key \u2014 set COHERE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:27Z",
+      "kind": "verified",
+      "text": "together: model list gated behind login/API key \u2014 set TOGETHER_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:27Z",
+      "kind": "verified",
+      "text": "fireworks: model list gated behind login/API key \u2014 set FIREWORKS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:28Z",
+      "kind": "verified",
+      "text": "github-models: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T07:06:30Z",
+      "kind": "verified",
+      "text": "qwen-bailian: model list gated behind login/API key \u2014 set DASHSCOPE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:31Z",
+      "kind": "verified",
+      "text": "moonshot: model list gated behind login/API key \u2014 set MOONSHOT_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:32Z",
+      "kind": "verified",
+      "text": "deepseek: model list gated behind login/API key \u2014 set DEEPSEEK_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:33Z",
+      "kind": "verified",
+      "text": "siliconflow: model list gated behind login/API key \u2014 set SILICONFLOW_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:33Z",
+      "kind": "verified",
+      "text": "zuki: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T07:06:33Z",
+      "kind": "verified",
+      "text": "nagaai: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T07:06:44Z",
+      "kind": "verified",
+      "text": "anannas: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T07:06:44Z",
+      "kind": "verified",
+      "text": "nscale: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T07:06:45Z",
+      "kind": "verified",
+      "text": "publicai: model list gated behind login/API key \u2014 set PUBLICAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:55Z",
+      "kind": "verified",
+      "text": "glhf: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T07:06:56Z",
+      "kind": "verified",
+      "text": "bai: model list gated behind login/API key \u2014 set BAI_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:56Z",
+      "kind": "verified",
+      "text": "targon: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T07:06:58Z",
+      "kind": "verified",
+      "text": "hcap: model list gated behind login/API key \u2014 set a provider API key to verify"
+    },
+    {
+      "at": "2026-09-21T07:06:59Z",
+      "kind": "verified",
+      "text": "experiential-labs: model list gated behind login/API key \u2014 set EXPERIENTIAL_LABS_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:07:00Z",
+      "kind": "verified",
+      "text": "inference: model list gated behind login/API key \u2014 set POOLSIDE_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:07:00Z",
+      "kind": "verified",
+      "text": "tokenrouter: model list gated behind login/API key \u2014 set TOKENROUTER_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:07:00Z",
+      "kind": "verified",
+      "text": "tabitoken: model list gated behind login/API key \u2014 set TABITOKEN_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:07:03Z",
+      "kind": "verified",
+      "text": "hcnsec: model list gated behind login/API key \u2014 set HCNSEC_API_KEY to verify"
+    },
+    {
+      "at": "2026-09-21T07:07:04Z",
+      "kind": "verified",
+      "text": "agentrouter: /v1/models unreachable this run (network/5xx)"
+    },
+    {
+      "at": "2026-09-21T07:07:04Z",
+      "kind": "verified",
+      "text": "per-provider /v1/models: merged 0 new models"
+    },
+    {
+      "at": "2026-09-21T07:07:04Z",
+      "kind": "verified",
+      "text": "openrouter :free: added 0 models"
+    },
+    {
+      "at": "2026-09-21T07:07:04Z",
+      "kind": "verified",
+      "text": "huggingface free: added 0 models"
+    },
+    {
+      "at": "2026-09-21T07:07:06Z",
+      "kind": "verified",
+      "text": "b.ai: added 0 models"
+    },
+    {
+      "at": "2026-09-21T07:07:07Z",
+      "kind": "verified",
+      "text": "xkiro: 37 free (source-declared), 74 paid/premium listed"
+    },
+    {
+      "at": "2026-09-21T07:07:07Z",
+      "kind": "pricing",
+      "text": "models.dev: backfilled 1234 models, promoted 0 to free, repaired 0 false free flags, leaderboard has 25 entries"
+    },
+    {
+      "at": "2026-09-21T07:07:08Z",
+      "kind": "verified",
+      "text": "openrouter-providers candidates for review: AtlasCloud (openrouter upstream, 1 free models); Nex AGI (openrouter upstream, 2 free models); Thinking Machines (openrouter upstream, 2 free models) \u2014 endpoint https://tinker.thinkingmachines.dev/services/tinker-prod/anthropic/api/v1 answered 'error'; Decart (openrouter upstream, 1 free models); ModelRun (openrouter upstream, 1 free models); Liquid (openrouter upstream, 2 free models)\u2026"
+    },
+    {
+      "at": "2026-09-21T07:07:08Z",
+      "kind": "verified",
+      "text": "public catalog tabitoken: refresh failed (HTTPStatusError)"
+    },
+    {
+      "at": "2026-09-21T07:07:52Z",
+      "kind": "added",
+      "text": "community-list promotion: 0 new providers"
+    },
+    {
+      "at": "2026-09-21T07:07:52Z",
+      "kind": "verifier",
+      "text": "orchestrator disabled: no LLM key configured (add a provider in Settings \u2192 Intelligence, or set OPENAI_API_KEY / ANTHROPIC_API_KEY)"
+    },
+    {
+      "at": "2026-09-21T07:07:52Z",
+      "kind": "verifier",
+      "text": "verifier disabled: no LLM key configured (add a provider in Settings \u2192 Intelligence, or set OPENAI_API_KEY / ANTHROPIC_API_KEY on the server)"
+    },
+    {
+      "at": "2026-09-21T07:07:52Z",
+      "kind": "verifier",
+      "text": "verifier: 0 verdicts (0 expired, 0 rebranded)"
+    },
+    {
+      "at": "2026-09-21T07:07:52Z",
+      "kind": "verified",
+      "text": "agent run finished in 86.0s"
     }
   ],
   "credit_providers": [
