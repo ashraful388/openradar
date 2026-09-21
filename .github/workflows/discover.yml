@@ -126,15 +126,27 @@ jobs:
         run: |
           git config user.name "openradar-bot"
           git config user.email "bot@openradar.local"
-          git add data/snapshot.json data/changelog.md
+          git add data/snapshot.json data/changelog.md data/submissions.jsonl
           if git diff --cached --quiet; then
             echo "no changes"
-          else
-            git commit -m "agent: refresh ($(date -u +%FT%TZ))"
-            # A racing run (e.g. two quick pushes) may have committed
-            # first — rebase our fresh snapshot on top rather than fail.
-            # "theirs" in a rebase is OUR replayed commit (the fresher
-            # agent data), so conflicts resolve in its favor.
-            git pull --rebase -X theirs origin main || git rebase --abort
-            git push
+            exit 0
+          fi
+          git commit -m "agent: refresh ($(date -u +%FT%TZ))"
+          # Sync with anything that landed meanwhile. --autostash absorbs
+          # leftover working-tree edits (the agent rewrites tracked data
+          # files); "theirs" in a rebase is OUR replayed commit — the
+          # fresher snapshot — so conflicts resolve in its favor.
+          git pull --rebase --autostash -X theirs origin main
+          # Push with an explicit refspec: on schedule events
+          # actions/checkout can leave a DETACHED HEAD, and a bare
+          # `git push` then dies with "fatal: You are not currently on a
+          # branch" — which failed every scheduled run for days while
+          # push-triggered runs (checked out on a branch) kept working.
+          if ! git push origin HEAD:main; then
+            echo "::error::git push failed — diagnostics below"
+            git status
+            git log --oneline -5
+            git branch -a
+            git remote -v
+            exit 1
           fi
