@@ -18,6 +18,7 @@ from __future__ import annotations
 import os
 import re
 import httpx
+from .. import provider_keys
 from ..models import Model, now
 
 
@@ -29,7 +30,8 @@ CATALOG: list[dict] = [
      "display": "DeepSeek V4 Flash", "input": 0, "cache_write": 0, "cache_read": 0, "output": 0,
      "modalities": ["chat"]},
     {"provider": "DeepSeek", "family": "DeepSeek", "model": "DeepSeek-V4-Flash-Vision-Exp",
-     "display": "DeepSeek V4 Flash Vision (exp)", "input": 0, "cache_write": 0, "cache_read": 0, "output": 0,
+     "display": "DeepSeek V4 Flash Vision (exp)", "input": None, "cache_write": None, "cache_read": None, "output": None,
+     "free": False,  # 1-token probe 2026-09-16: "credit insufficient balance" — now credit-gated
      "modalities": ["chat", "vision"]},
     {"provider": "DeepSeek", "family": "DeepSeek", "model": "DeepSeek-V4-Pro",
      "display": "DeepSeek V4 Pro", "input": 1.32, "cache_write": 1.32, "cache_read": 0.044, "output": 3.96,
@@ -50,7 +52,8 @@ CATALOG: list[dict] = [
      "modalities": ["chat"]},
     # Z.ai / GLM
     {"provider": "Z.ai", "family": "GLM", "model": "GLM-5.3-Flash",
-     "display": "GLM 5.3 Flash", "input": 0, "cache_write": 0, "cache_read": 0, "output": 0,
+     "display": "GLM 5.3 Flash", "input": None, "cache_write": None, "cache_read": None, "output": None,
+     "free": False,  # 1-token probe 2026-09-16: "credit insufficient balance, required=102" — repriced
      "modalities": ["chat"]},
     {"provider": "Z.ai", "family": "GLM", "model": "GLM-5.3",
      "display": "GLM 5.3", "input": 1.4, "cache_write": 1.4, "cache_read": 0.28, "output": 4.4,
@@ -257,8 +260,10 @@ def scrape_chat(timeout: float = 20.0) -> list[dict]:
 
 def fetch_live(timeout: float = 15.0) -> list[dict]:
     """If BAI_API_KEY is set, pull the live /v1/models list. Returns empty
-    list otherwise (caller falls back to scraping, then to the static CATALOG)."""
-    key = os.environ.get("BAI_API_KEY")
+    list otherwise (caller falls back to scraping, then to the static CATALOG).
+    The key resolves from the environment first (CI/Vercel path), then the
+    Settings → Provider API keys store."""
+    key = os.environ.get("BAI_API_KEY") or provider_keys.get("BAI_API_KEY")
     if not key:
         return []
     try:
@@ -278,7 +283,12 @@ def fetch_live(timeout: float = 15.0) -> list[dict]:
 def is_free(row: dict) -> bool:
     """A model is 'free' when its input AND output pricing is 0.
     Models with a gift-box icon (new-signup promo) are flagged via the
-    `is_promo` field on the scraped row, which sets free_kind='free_credits'."""
+    `is_promo` field on the scraped row, which sets free_kind='free_credits'.
+    A row carrying `free: False` has no usable pricing (b.ai repriced it
+    behind a credit balance — probe-verified 2026-09-16) or is a
+    live-list row with no pricing at all: unknown is never free."""
+    if row.get("free") is False:
+        return False
     try:
         return float(row.get("input", 0) or 0) == 0 and float(row.get("output", 0) or 0) == 0
     except (TypeError, ValueError):
@@ -350,9 +360,13 @@ def normalize_display(model_id: str) -> str:
 def all_rows() -> list[dict]:
     """Combine all sources in priority order:
 
-      1. Live API (BAI_API_KEY set) — gives accurate model ids, no pricing.
-      2. Scrape chat.b.ai/key — gives accurate model ids and pricing.
-      3. Static CATALOG — last known values.
+      1. Live API (BAI_API_KEY set) — accurate model ids, NO pricing:
+         those rows are marked `free: False` because b.ai now credit-gates
+         models individually; an unpriced live row used to default to
+         free and kept repriced models (GLM-5.3-Flash) looking free.
+      2. Scrape chat.b.ai/key — accurate model ids and pricing.
+      3. Static CATALOG — last known values (rows probe-verified to
+         require credits carry `free: False`).
 
     Each step only fills in models the previous step didn't cover."""
     live = fetch_live()
@@ -363,7 +377,11 @@ def all_rows() -> list[dict]:
     for row in live:
         mid = row.get("id") or row.get("name") or ""
         if mid and mid not in by_id:
-            by_id[mid] = row
+            # Raw live rows carry no pricing — b.ai credit-gates models
+            # individually, so "unknown price" must not classify as free.
+            # The 1-token probe (with a key) re-verifies the genuinely
+            # free ones every run.
+            by_id[mid] = {"id": mid, "free": False}
     for row in CATALOG:
         # the catalog's "model" key maps to the b.ai kebab-case id; convert.
         scraped_id = row["model"].lower().replace(" ", "-")
@@ -372,9 +390,10 @@ def all_rows() -> list[dict]:
                 "id": scraped_id,
                 "display": row["display"],
                 "provider": row["provider"],
-                "input": row.get("input", 0),
-                "output": row.get("output", 0),
-                "cache_read": row.get("cache_read", 0),
-                "cache_write": row.get("cache_write", 0),
+                "input": row.get("input"),
+                "output": row.get("output"),
+                "cache_read": row.get("cache_read"),
+                "cache_write": row.get("cache_write"),
+                "free": row.get("free"),
             }
     return list(by_id.values())

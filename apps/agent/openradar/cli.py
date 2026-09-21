@@ -991,10 +991,12 @@ def ingest_bai(snap: Snapshot) -> int:
         # flag can never outlive the prices it was based on.
         for m in snap.models:
             if m.provider_id == "p_bai" and m.model_id.casefold() == mid.casefold():
-                m.input_per_1m = float(row.get("input") or 0)
-                m.output_per_1m = float(row.get("output") or 0)
-                m.cache_read_per_1m = float(row.get("cache_read") or 0)
-                m.cache_write_per_1m = float(row.get("cache_write") or 0)
+                # None prices (repriced/credit-gated rows) stay None — the
+                # model renders as unverified instead of a fake $0.
+                m.input_per_1m = float(row["input"]) if row.get("input") is not None else None
+                m.output_per_1m = float(row["output"]) if row.get("output") is not None else None
+                m.cache_read_per_1m = float(row["cache_read"]) if row.get("cache_read") is not None else None
+                m.cache_write_per_1m = float(row["cache_write"]) if row.get("cache_write") is not None else None
                 now_free = sources.bai.is_free(row)
                 if now_free != m.is_free:
                     m.is_free = now_free

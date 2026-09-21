@@ -80,6 +80,16 @@ def probe_model(base_url: str, model_id: str, api_key: str,
             # Key rejected entirely — every further probe on this
             # provider would say the same thing.
             return ProbeResult("inconclusive", "401 unauthorized")
+        if r.status_code == 400:
+            # Some gateways (b.ai) reject an unaffordable model with a
+            # 400 instead of a 402: "credit insufficient balance ...
+            # required=102" / "Deposit required to unlock premium
+            # models". That's a definitive paywall verdict, not a bad
+            # request shape — without this, repriced models stay
+            # "inconclusive" forever and stale free claims survive.
+            text = (r.text or "").lower()
+            if any(k in text for k in ("insufficient balance", "credit", "deposit", "balance=")):
+                return ProbeResult("paid", (r.text or "")[:120])
         if r.status_code == 429 or r.status_code >= 500:
             if attempt < RETRY_INCONCLUSIVE:
                 continue
