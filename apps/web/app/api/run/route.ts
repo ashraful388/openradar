@@ -104,7 +104,9 @@ async function dispatchGithubRun(): Promise<{ ok: boolean; message?: string; err
 
 /** GET — return the current run state. Cheap; the form polls this. */
 export async function GET() {
-  return NextResponse.json(await readState());
+  // `version` marks the deployed build for verification: if a deployment
+  // doesn't report it, that deployment is running pre-fix code.
+  return NextResponse.json({ ...(await readState()), version: "run-now-fix-1" });
 }
 
 /** POST — kick off a fresh agent run. On the local server that's the
