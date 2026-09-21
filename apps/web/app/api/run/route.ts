@@ -41,16 +41,82 @@ async function writeState(s: RunState) {
   await fs.writeFile(RUN_STATE_PATH, JSON.stringify(s, null, 2), "utf8");
 }
 
+/** The local-server path only exists where the agent checkout is present
+ *  AND the filesystem is writable. On Vercel neither is true. */
+async function canRunLocally(): Promise<boolean> {
+  try {
+    await fs.access(AGENT_DIR);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Hosted-deployment path: dispatch the GitHub Actions discovery run —
+ *  the CI equivalent of the local agent. Needs GITHUB_TOKEN (Actions
+ *  write) + OPENRADAR_GITHUB_REPO, the same env vars the Submit form
+ *  uses. */
+async function dispatchGithubRun(): Promise<{ ok: boolean; message?: string; error?: string }> {
+  const token = process.env.GITHUB_TOKEN;
+  const repo = process.env.OPENRADAR_GITHUB_REPO;
+  if (!token || !repo) {
+    return {
+      ok: false,
+      error:
+        "This deployment can't run the agent directly (no Python runtime, read-only filesystem). " +
+        "Set GITHUB_TOKEN and OPENRADAR_GITHUB_REPO in the Vercel environment to dispatch the " +
+        "GitHub Actions run from here, or use the Actions tab / Run workflow button.",
+    };
+  }
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${repo}/actions/workflows/discover.yml/dispatches`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/vnd.github+json",
+          "Content-Type": "application/json",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+        body: JSON.stringify({
+          ref: "main",
+          inputs: { reason: "Run now button on the deployed site" },
+        }),
+      },
+    );
+    if (res.status === 204) {
+      return {
+        ok: true,
+        message:
+          "Dispatched a GitHub Actions discovery run — the snapshot refreshes in a few minutes.",
+      };
+    }
+    const detail = await res.text().catch(() => "");
+    return {
+      ok: false,
+      error: `GitHub refused the dispatch (HTTP ${res.status}). ${detail.slice(0, 160)}`,
+    };
+  } catch {
+    return { ok: false, error: "Could not reach GitHub to dispatch the run." };
+  }
+}
+
 /** GET — return the current run state. Cheap; the form polls this. */
 export async function GET() {
   return NextResponse.json(await readState());
 }
 
-/** POST — kick off a fresh agent run. Single-flight: rejects while a
- * job is already running. The job writes its own state to disk and
- * the form reads it via GET.
+/** POST — kick off a fresh agent run. On the local server that's the
+ * Python agent (single-flight, 10-minute cap, log to data/.run.log);
+ * on a hosted deployment it dispatches the GitHub Actions run instead.
  */
 export async function POST() {
+  if (!(await canRunLocally())) {
+    const r = await dispatchGithubRun();
+    return NextResponse.json({ ...r, via: "github-actions" }, { status: r.ok ? 200 : 503 });
+  }
+
   const cur = await readState();
   if (cur.last_status === "running") {
     return NextResponse.json(
@@ -71,7 +137,7 @@ export async function POST() {
   });
 
   // Spawn the agent detached from the request lifecycle. We use
-  // `detached: true` + `stdio: ["ignore", logfile, logfile]` so the
+  // `detached: true` + piped stdio appended to the logfile so the
   // process keeps running after the POST returns. The form polls
   // GET /api/run to watch progress.
   await fs.mkdir(DATA_DIR, { recursive: true });
@@ -141,6 +207,11 @@ export async function POST() {
 
 /** DELETE — clear the run state (used by the form's "dismiss" button). */
 export async function DELETE() {
+  if (!(await canRunLocally())) {
+    // Nothing persisted on a read-only deployment — report success so
+    // the dismiss button still clears the local UI row.
+    return NextResponse.json({ ok: true });
+  }
   await writeState({ ...EMPTY_STATE });
   return NextResponse.json({ ok: true });
 }

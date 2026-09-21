@@ -83,6 +83,7 @@ export function SettingsForm({
   // and a button that triggers a fresh agent run.
   const [runState, setRunState] = useState<any>({ last_status: "idle" });
   const [runErr, setRunErr] = useState<string | null>(null);
+  const [runMsg, setRunMsg] = useState<string | null>(null);
   const [runPending, setRunPending] = useState(false);
 
   // Load existing provider cards on mount.
@@ -182,12 +183,27 @@ export function SettingsForm({
 
   async function runNow() {
     setRunErr(null);
+    setRunMsg(null);
     setRunPending(true);
     try {
       const r = await fetch("/api/run", { method: "POST" });
-      const data = await r.json();
-      if (!r.ok) {
-        setRunErr(data?.error || "run failed to start");
+      // Parse defensively: a crashed or empty response must surface a
+      // real message instead of "Unexpected end of JSON input".
+      const text = await r.text();
+      let data: any = null;
+      try {
+        data = text ? JSON.parse(text) : null;
+      } catch {
+        data = null;
+      }
+      if (!r.ok || !data?.ok) {
+        setRunErr(data?.error || `Run failed to start (HTTP ${r.status}).`);
+        return;
+      }
+      if (data.via === "github-actions" || !data.job_id) {
+        // Hosted deployment: no local agent to poll — the GitHub Actions
+        // run was dispatched instead.
+        setRunMsg(data.message || "Dispatched a GitHub Actions discovery run.");
         return;
       }
       setRunState({
@@ -347,6 +363,7 @@ export function SettingsForm({
           </button>
         </div>
         {runErr ? <p className="settings-err">{runErr}</p> : null}
+        {runMsg ? <p className="settings-ok">{runMsg}</p> : null}
 
         <Field label="Log level" hint="Verbosity of the agent's run output.">
           <select value={cfg.agent.log_level} onChange={(e) => setNested("agent", "log_level", e.target.value)}>
