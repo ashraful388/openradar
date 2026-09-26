@@ -1426,3 +1426,34 @@
 - **pricing** — models.dev: backfilled 0 models, promoted 0 to free, leaderboard has 1 entries
 - **added** — community-list promotion: 0 new providers
 - **verified** — agent run finished in 0.0s
+## 2026-09-26 01:32 UTC
+- **verified** — agent run started
+- **verified** — per-provider /v1/models: merged 0 new models
+- **verified** — openrouter :free: added 2 models
+- **verified** — huggingface free: added 2 models
+- **verified** — b.ai: added 45 models
+- **pricing** — models.dev: backfilled 0 models, promoted 0 to free, leaderboard has 1 entries
+- **added** — community-list promotion: 0 new providers
+- **verified** — agent run finished in 0.0s
+- **verified** — agent run started
+- **verified** — per-provider /v1/models: merged 1007 new models
+- **verified** — openrouter :free: added 0 models
+- **verified** — huggingface free: added 0 models
+- **verified** — b.ai: added 0 models
+- **pricing** — models.dev: backfilled 655 models, promoted 199 to free, leaderboard has 25 entries
+- **added** — auto-promoted Models (host=api.voidai.app) from zukixa/cool-ai-stuff
+- **added** — auto-promoted Models (host=api.naga.ac) from zukixa/cool-ai-stuff
+- **added** — auto-promoted Models (host=helixmind.online) from zukixa/cool-ai-stuff
+- **added** — auto-promoted draycast (host=api.navy) from zukixa/cool-ai-stuff
+- **added** — auto-promoted Models (host=api.mnnai.ru) from zukixa/cool-ai-stuff
+- **added** — auto-promoted Models (host=hcap.ai) from zukixa/cool-ai-stuff
+- **added** — community-list promotion: 6 new providers
+- **verified** — agent run finished in 108.3s
+- **verified** — agent run started
+- **verified** — per-provider /v1/models: merged 0 new models
+- **verified** — openrouter :free: added 0 models
+- **verified** — huggingface free: added 0 models
+- **verified** — b.ai: added 0 models
+- **pricing** — models.dev: backfilled 0 models, promoted 0 to free, leaderboard has 1 entries
+- **added** — community-list promotion: 0 new providers
+- **verified** — agent run finished in 0.0s
